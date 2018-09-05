@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { getAlcohol } from './components/Axios';
 import './App.css';
 
 class App extends Component {
+  
+  componentDidMount(){
+    console.log('componentDidMount called');
+    getAlcohol('vodka').then((res) => {
+      console.log(res.data.result);
+    });
+    getAlcohol('wine');
+    getAlcohol('beer');
+  }
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
       </div>
     );
   }
