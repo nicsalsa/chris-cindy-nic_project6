@@ -1,15 +1,24 @@
 import axios from 'axios';
 
-const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
+// const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
 
-axios({
-  method: 'GET',
-  url: 'https://lcboapi.com/products',
-  dataResponse: 'json',
-  params: {
-    access_key: apiKeyLCBO
-  }
-})
-  .then(function (res) {
-    console.log(res);
-  });
+const yumKey = 'db789c67a38e847449cc1295f3a4e25d';
+const yumId = '1c7ea655';
+
+export function getCocktails(alcohol) {
+    axios({
+    method: 'GET',
+      url: 'http://api.yummly.com/v1/api/recipes',
+    dataResponse: 'json',
+    params: {
+      _app_id: yumId,
+      _app_key: yumKey,
+      requirePictures: true,
+      allowedIngredient: ['coffee', alcohol],
+      allowedCourse: ['course^course-Cocktails']
+    }
+  })
+    .then(function (res) {
+      console.log(res);
+    });
+}
