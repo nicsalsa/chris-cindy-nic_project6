@@ -1,19 +1,36 @@
 import axios from 'axios';
 import Qs from 'qs';
 
-const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
+// const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
+
+
+const yumKey = 'db789c67a38e847449cc1295f3a4e25d';
+const yumId = '1c7ea655';
+
+export function getCocktails(alcohol) {
+    axios({
+    method: 'GET',
+      url: 'http://api.yummly.com/v1/api/recipes',
+    dataResponse: 'json',
+    params: {
+      _app_id: yumId,
+      _app_key: yumKey,
+      requirePictures: true,
+      allowedIngredient: ['coffee', alcohol],
+      allowedCourse: ['course^course-Cocktails']
+    }
+  })
+    .then(function (res) {
+      console.log(res);
+    });
+}
 
 export function getAlcohol(query) {
   console.log('about to call axios');
   return axios({
     method: 'GET',
     url: 'https://lcboapi.com/products',
-    // url: 'https://proxy.hackeryou.com',
-    //OR url: 'https://proxy.hackeryou.com',
     dataResponse: 'json',
-    // paramsSerializer: function (params) {
-    //   return Qs.stringify(params, { arrayFormat: 'brackets' })
-    // },
     params: {
       q: query,
       per_page: 20,
@@ -23,4 +40,5 @@ export function getAlcohol(query) {
     }
   })
 }
+
 

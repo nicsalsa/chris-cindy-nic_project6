@@ -3,11 +3,12 @@ import './App.css';
 // import { BrowserRouter as Router, Route, Link } from 'react-route-dom';
 
 // COMPONENTS
-import { getAlcohol } from './components/Axios';
+import { getAlcohol, getCocktails } from './components/Axios';
 import Landing from './components/Landing';
 import Form from './components/Form';
 import Results from './components/Results';
 import Recipe from './components/Recipe';
+
 
 class App extends Component {
   
@@ -18,6 +19,7 @@ class App extends Component {
     });
     getAlcohol('wine');
     getAlcohol('beer');
+    getCocktails('vodka');
   }
   
   render() {
