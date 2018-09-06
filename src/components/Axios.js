@@ -18,7 +18,11 @@ export function getCocktails(alcohol) {
     }
   })
     .then(function (res) {
-      return res.data.matches;
+      const cocktails = res.data.matches;
+      const finalCocktails = cocktails.filter((cocktail) => {
+        return !cocktail.recipeName.includes("Homemade");
+      })
+      return finalCocktails;
     });
 }
 
@@ -31,8 +35,8 @@ export function getRecipe(cocktail) {
       _app_id: yumId,
       _app_key: yumKey
     }
-  }).then(function (res) {
-    return res
+  }).then(function(res) {
+    return res;
   });
 }
 
