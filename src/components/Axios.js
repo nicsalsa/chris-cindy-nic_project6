@@ -35,7 +35,7 @@ export function getRecipe(cocktail) {
       _app_id: yumId,
       _app_key: yumKey
     }
-  }).then(function (res) {
+  }).then(function(res) {
     return res;
   });
 }

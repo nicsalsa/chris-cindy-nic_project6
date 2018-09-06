@@ -9,12 +9,14 @@ class Form extends Component {
       userChoice: ''
     }
   }
+  
   handleChange = () => {
     const userChoice = document.querySelector('.form__input:checked').value;
     this.setState({
       userChoice: userChoice
     });
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.getUserChoice(this.state.userChoice);
