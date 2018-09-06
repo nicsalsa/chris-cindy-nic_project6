@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './../partials/_form.scss';
+import { getAlcohol, getCocktails } from './Axios';
 
 class Form extends Component {
   constructor(){
@@ -8,30 +9,45 @@ class Form extends Component {
       userChoice: ''
     }
   }
+  handleChange = () => {
+    const userChoice = document.querySelector('.form__input:checked').value;
+    this.setState({
+      userChoice: userChoice
+    });
+  }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.getUserChoice(this.state.userChoice);
+  }
+
+
+
   render(){
     return(
-      <form className="form">
-        <fieldset className="h3">Choose your poison</fieldset>
-        <label className="form__label" htmlFor="vodka">Vodka</label>
-        <input type="radio" className="form__input" value="vodka" id="vodka" />
+      <form onSubmit={this.handleSubmit} className="form">
+        <fieldset onChange={this.handleChange} className="h3">Choose your poison
+          <input type="radio" name="alcohol" className="form__input" value="vodka" id="vodka" />
+          <label className="form__label" htmlFor="vodka">Vodka</label>
 
-        <label htmlFor="tequila">Tequila</label>
-        <input type="radio" className="form__input" value="tequila" id="tequila" />
+          <input type="radio" name="alcohol" className="form__input" value="tequila" id="tequila" />
+          <label htmlFor="tequila">Tequila</label>
 
-        <label className="form__label" htmlFor="whiskey">Whiskey</label>
-        <input type="radio" className="form__input" value="whiskey" id="whiskey" />
+          <input type="radio" name="alcohol" className="form__input" value="whiskey" id="whiskey" />
+          <label className="form__label" htmlFor="whiskey">Whiskey</label>
 
-        <label className="form__label" htmlFor="brandy">Brandy</label>
-        <input type="radio" className="form__input" value="brandy" id="brandy" />
+          <input type="radio" name="alcohol" className="form__input" value="brandy" id="brandy" />
+          <label className="form__label" htmlFor="brandy">Brandy</label>
 
-        <label className="form__label" htmlFor="bourbon">Bourbon</label>
-        <input type="radio" className="form__input" value="bourbon" id="bourbon" />
+          <input type="radio" name="alcohol" className="form__input" value="bourbon" id="bourbon" />
+          <label className="form__label" htmlFor="bourbon">Bourbon</label>
 
-        <label className="form__label" htmlFor="rum">Rum</label>
-        <input type="radio" className="form__input" value="rum" id="rum" />
+          <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
+          <label className="form__label" htmlFor="rum">Rum</label>
 
-        <label className="form__label" htmlFor="beer">Beer</label>
-        <input type="radio" className="form__input" value="beer" id="beer" />
+          <input type="radio" name="alcohol" className="form__input" value="beer" id="beer" />
+          <label className="form__label" htmlFor="beer">Beer</label>
+        </fieldset>
+        <button className="btn">Submit</button>
       </form>
     )
   }

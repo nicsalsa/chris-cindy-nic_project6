@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './../partials/_results.scss';
+import { Link } from 'react-router-dom';
+
 
 class Results extends Component {
   render(){
@@ -16,8 +18,12 @@ class Results extends Component {
         </div>
 
         <div className="btn-container">
-          <button className="btn">Shake it up</button>
-          <button className="btn">Serve it up</button>
+          <Link to="/Form">
+            <button className="btn">Shake it up</button>
+          </Link>
+          <Link to="/Recipe">
+            <button className="btn">Serve it up</button>
+          </Link>
         </div>
       </section>
     )
