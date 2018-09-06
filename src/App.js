@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // COMPONENTS
-import { getAlcohol, getCocktails, getRecipe } from './components/Axios';
+import { getCocktails, getRecipe, getAlcohol } from './components/Axios';
 import Landing from './components/Landing';
 import Form from './components/Form';
 import Results from './components/Results';
@@ -39,8 +39,11 @@ class App extends Component {
       choiceOfAlcohol
     });
     getCocktails(choiceOfAlcohol).then ((cocktailArray) => {
+
+      const uniqueCocktailArray = new Set(cocktailArray);
+      const uniqueCocktailArray2 = Array.from(uniqueCocktailArray)
       this.setState({
-        cocktailArray
+        cocktailArray: uniqueCocktailArray2
       }, () => {
         this.getRandomCocktail();
       }
@@ -61,15 +64,20 @@ class App extends Component {
       });
     })
   }
+
+ 
+
+  
   
   render() {
     return (
       <Router>
         <div className="App">
-          <Landing />
-          <Route exact path="/Form" render={() => <Form getUserChoice={this.getUserChoice} />} />
-          <Results recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol}/>
-          <Route exact path ="/Recipe" component={Recipe} />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/Form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
+          <Route exact path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          
+          <Route exact path ="/Recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
         </div>
       </Router>
     )

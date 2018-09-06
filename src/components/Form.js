@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './../partials/_form.scss';
-import { getAlcohol, getCocktails } from './Axios';
 
 class Form extends Component {
   constructor(){
@@ -10,8 +9,9 @@ class Form extends Component {
     }
   }
   
-  handleChange = () => {
-    const userChoice = document.querySelector('.form__input:checked').value;
+  
+  handleChange = (e) => {
+    const userChoice = e.target.value;
     this.setState({
       userChoice: userChoice
     });
@@ -19,7 +19,10 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    if(this.state.userChoice){
     this.props.getUserChoice(this.state.userChoice);
+    this.props.history.push('/Results');
+    }
   }
 
 
