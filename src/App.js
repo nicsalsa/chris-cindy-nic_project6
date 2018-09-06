@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 // COMPONENTS
-import { getAlcohol, getCocktails } from './components/Axios';
+import { getAlcohol, getCocktails, getRecipe } from './components/Axios';
 import Landing from './components/Landing';
 import Form from './components/Form';
 import Results from './components/Results';
@@ -14,6 +14,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      choiceOfAlcohol: '',
       cocktailArray: [],
       userDrink: ''
     }
@@ -34,6 +35,9 @@ class App extends Component {
     return item;
   }
   getUserChoice = (choiceOfAlcohol) => {
+    this.setState({
+      choiceOfAlcohol
+    });
     getCocktails(choiceOfAlcohol).then ((cocktailArray) => {
       this.setState({
         cocktailArray
@@ -45,7 +49,17 @@ class App extends Component {
   }
 
   getRandomCocktail = () => {
-    const cocktailChoice = this.randomizer(this.state.cocktailArray);
+    const userDrink = this.randomizer(this.state.cocktailArray);
+    this.getRecipeDetails(userDrink.id);
+  }
+  
+  getRecipeDetails = (drink) => {
+    getRecipe(drink).then((res) => {
+      const userDrink = res.data
+      this.setState({
+        userDrink
+      });
+    })
   }
   
   render() {
@@ -54,7 +68,7 @@ class App extends Component {
         <div className="App">
           <Landing />
           <Route exact path="/Form" render={() => <Form getUserChoice={this.getUserChoice} />} />
-          <Results />
+          <Results recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol}/>
           <Route exact path ="/Recipe" component={Recipe} />
         </div>
       </Router>
