@@ -20,7 +20,9 @@ export function getCocktails(alcohol) {
     .then(function (res) {
       const cocktails = res.data.matches;
       const finalCocktails = cocktails.filter((cocktail) => {
-        return !cocktail.recipeName.includes("Homemade");
+        return !cocktail.recipeName.includes("Homemade") 
+        && cocktail.sourceDisplayName !== 'Vegan Gretchen'
+        && !cocktail.recipeName.includes("Ham");
       })
       return finalCocktails;
     });
@@ -48,11 +50,21 @@ export function getAlcohol(alcohol) {
     dataResponse: 'json',
     params: {
       q: alcohol,
-      per_page: 20,
+      per_page: 25,
+      order: 'regular_price_in_cents.asc'
     },
     headers: {
       Authorization: `Token token=${apiKeyLCBO}`
     }
+  }).then((res) => {
+    const filteredAlcohol = res.data.result.filter((libation) => {
+      return libation.primary_category === 'Spirits' 
+      && libation.tertiary_category !== 'Fruit Flavoured'
+      && libation.package_unit_volume_in_milliliters >= 750;
+
+      
+    })
+    console.log(filteredAlcohol)
   })
 }
 
