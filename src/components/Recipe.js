@@ -9,17 +9,28 @@ class Recipe extends Component {
       bar: []
     }
   }
+  
   componentDidMount(){
     this.getLcbo();
   }
+
   getLcbo = () => {
     const bar = []
-    getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
-      bar.push(res[0]);
-    })
-    getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
-      bar.push(res[0]);
-    })
+    if(this.props.alcohol === 'vodka') {
+      getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc', 2).then((res) => {
+        bar.push(res[0]);
+      })
+      getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
+        bar.push(res[0]);
+      })
+    } else {
+      getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
+        bar.push(res[0]);
+      })
+      getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
+        bar.push(res[0]);
+      })
+    }
     // console.log(bar);
   }
 

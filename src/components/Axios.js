@@ -43,7 +43,7 @@ export function getRecipe(cocktail) {
   });
 }
 
-export function getAlcohol(alcohol, order, page=1) {
+export function getAlcohol(alcohol, order, page = 1) {
   return axios({
     method: 'GET',
     url: 'https://lcboapi.com/products',
