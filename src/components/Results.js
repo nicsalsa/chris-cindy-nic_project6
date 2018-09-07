@@ -6,7 +6,6 @@ import Recipe from './Recipe';
 
 class Results extends Component {
 
-
   render(){
     return(
       <Router>

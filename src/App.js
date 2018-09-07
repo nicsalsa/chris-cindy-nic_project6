@@ -20,15 +20,6 @@ class App extends Component {
     }
   }
   
-  // componentDidMount(){
-  //   console.log('componentDidMount called');
-  //   getAlcohol('vodka').then((res) => {
-  //     console.log(res.data.result);
-  //   });
-  //   getAlcohol('wine');
-  //   getAlcohol('beer');
-  //   getCocktails('vodka');
-  // }
   randomizer = (arr) => {
     const item = arr[Math.floor(Math.random() * arr.length)];
     return item;
@@ -64,6 +55,8 @@ class App extends Component {
     })
   }
 
+ 
+
   
   
   render() {
@@ -72,7 +65,9 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={Landing} />
           <Route exact path="/Form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
-          <Route path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          <Route exact path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          
+          <Route exact path ="/Recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
         </div>
       </Router>
     )
