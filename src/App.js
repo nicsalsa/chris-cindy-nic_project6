@@ -64,10 +64,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/" component={Landing} />
-          <Route exact path="/Form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
-          <Route exact path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          <Route exact path="/form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
+          <Route exact path="/results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
           
-          <Route exact path ="/Recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          <Route exact path ="/recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
         </div>
       </Router>
     )

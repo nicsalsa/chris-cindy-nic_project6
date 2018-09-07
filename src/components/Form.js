@@ -21,7 +21,7 @@ class Form extends Component {
     e.preventDefault();
     if(this.state.userChoice){
     this.props.getUserChoice(this.state.userChoice);
-    this.props.history.push('/Results');
+    this.props.history.push('/results');
     }
   }
 
