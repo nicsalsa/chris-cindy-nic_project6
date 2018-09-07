@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
 const yumKey = 'db789c67a38e847449cc1295f3a4e25d';
+const yumKey2 = '154e73a574c99a4099afd1db03d57738';
 const yumId = '1c7ea655';
 
 export function getCocktails(alcohol) {
@@ -24,7 +25,6 @@ export function getCocktails(alcohol) {
         && cocktail.sourceDisplayName !== 'Vegan Gretchen'
         && !cocktail.recipeName.includes("Ham");
       })
-      console.log(finalCocktails);
       return finalCocktails;
     });
 }
@@ -58,7 +58,6 @@ export function getAlcohol(alcohol, order, page = 1) {
       Authorization: `Token token=${apiKeyLCBO}`
     }
   }).then((res) => {
-    console.log(res);
     const filteredAlcohol = res.data.result.filter((libation) => {
       return libation.primary_category === 'Spirits' 
       && libation.tertiary_category !== 'Fruit Flavoured'
