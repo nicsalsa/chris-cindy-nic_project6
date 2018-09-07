@@ -13,13 +13,14 @@ class Recipe extends Component {
     this.getLcbo();
   }
   getLcbo = () => {
-    getAlcohol(this.props.alcohol).then((res) => {
-      this.setState({
-        // call lcbo api twice in order to get the descending order of regular price in cents and the ascending. to get the cheaper brand and the most expensive brand.
-        bar: res
-      })
-
+    const bar = []
+    getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
+      bar.push(res[0]);
     })
+    getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
+      bar.push(res[0]);
+    })
+    // console.log(bar);
   }
 
   render(){

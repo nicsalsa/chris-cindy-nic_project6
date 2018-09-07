@@ -48,9 +48,6 @@ class Form extends Component {
 
           <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
           <label className="form__label" htmlFor="rum">Rum</label>
-
-          <input type="radio" name="alcohol" className="form__input" value="beer" id="beer" />
-          <label className="form__label" htmlFor="beer">Beer</label>
         </fieldset>
         <button className="btn">Submit</button>
       </form>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './../partials/_results.scss';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
+import Recipe from './Recipe';
+
 
 class Results extends Component {
 
@@ -23,9 +25,11 @@ class Results extends Component {
           <Link to="/Form" >
             <button className="btn">Shake it up</button>
           </Link>
-          <Link to="/Recipe">
+          <Link to="Results/Recipe">
             <button className="btn">Serve it up</button>
           </Link>
+
+          <Route path="Results/Recipe" render={(props) => <Recipe {...props} recipe={this.props.userDrink} alcohol={this.props.choiceOfAlcohol} />} />
         </div>
       </section>
     )
