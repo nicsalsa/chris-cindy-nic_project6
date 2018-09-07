@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({
       choiceOfAlcohol
     });
-    getCocktails(choiceOfAlcohol).then ((cocktailArray) => {
+    getCocktails(choiceOfAlcohol).then((cocktailArray) => {
 
       const uniqueCocktailArray = new Set(cocktailArray);
       const uniqueCocktailArray2 = Array.from(uniqueCocktailArray)

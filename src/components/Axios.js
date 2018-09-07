@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const apiKeyLCBO = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
 const yumKey = 'db789c67a38e847449cc1295f3a4e25d';
+const yumKey2 = '154e73a574c99a4099afd1db03d57738';
 const yumId = '1c7ea655';
 
 export function getCocktails(alcohol) {
@@ -42,7 +43,7 @@ export function getRecipe(cocktail) {
   });
 }
 
-export function getAlcohol(alcohol, order, page=1) {
+export function getAlcohol(alcohol, order, page = 1) {
   return axios({
     method: 'GET',
     url: 'https://lcboapi.com/products',

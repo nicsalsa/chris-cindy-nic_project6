@@ -4,44 +4,53 @@ import './../partials/_recipe.scss';
 import { Link } from 'react-router-dom';
 
 class Recipe extends Component {
+
   constructor(){
     super();
     this.state = {
-      bar: []
+      cheap: {},
+      expensive: {},
     }
   }
+    
+  getLcbo = () => {
+    for (let page = 1; page < 5; page++) {
+      if (!this.state.cheap) {
+        getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc', page).then((res) => {
+          if(res) {
+            this.setState({
+              cheap: res[0]
+            })
+          }
+        });
+      }
+    }
+    
+    for (let page = 1; page < 5; page++) {
+      if (!this.state.expensive) {
+        getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc', page).then((res) => {
+          if (res) {
+            this.setState({
+              expensive: res[0]
+            })
+          }
+        });
+      }
+    }
+  }
+  
+  convertPrice = (obj) => {
+      const price = obj.regular_price_in_cents / 100
+      return price;
+    }
+    
   componentDidMount(){
     this.getLcbo(); 
   }
-
-  getLcbo = () => {
-    let bar = ['testing'];
-    // console.log(typeof bar);
-    getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
-      bar.push(res[0]);
-    })
-    getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
-      bar.push(res[0]);
-    })
-    this.setState({
-      bar
-    })
-    console.log(this.state.bar);
-    // console.log(typeof bar);
-    // this.setState({
-    //   bar: 
-    // })
-    // console.log(typeof this.state.bar);
-  }
-
-  // convertPrice = (i) => {
-  //   const price = this.state.bar[i].regular_price_in_cents / 100
-  //   console.log(price);
-  // }
-
-  render(){
-    const instructions = this.props.recipe.ingredientLines
-    return(
+  
+render() {
+    const instructions = this.props.recipe.ingredientLines;
+    return (
       <section className="recipe">
         <h2 className="h2">{this.props.recipe.name}</h2>
   
@@ -55,16 +64,16 @@ class Recipe extends Component {
   
         <div className="recipe__alcoholInfo">
           <figure className="alcoholInfo__box">
-          {/* product picture */}
+          {this.state.cheap ? <img src={this.state.cheap.image_thumb_url} /> : null }
             <figcaption>
-              {/* <a href="/">{ this.state.bar ? this.convertPrice(0) : null }</a> */}
+              <a href="/">{ this.state.cheap ? this.convertPrice(this.state.cheap).toFixed(2) : null }</a>
             </figcaption>
           </figure>
   
           <figure className="alcoholInfo__box">
-            {/* product picture */}
+          {this.state.expensive ? <img src={this.state.expensive.image_thumb_url} /> : null }
             <figcaption>
-              {/* <a href="/">{this.state.bar ? this.convertPrice(1) : null}</a> */}
+              <a href="/">{this.state.expensive ? this.convertPrice(this.state.expensive).toFixed(2) : null }</a>
             </figcaption>
           </figure>
         </div>
@@ -74,7 +83,6 @@ class Recipe extends Component {
       </section>
     )
   }
-
 }
 
 export default Recipe;
