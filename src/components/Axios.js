@@ -24,7 +24,6 @@ export function getCocktails(alcohol) {
         && cocktail.sourceDisplayName !== 'Vegan Gretchen'
         && !cocktail.recipeName.includes("Ham");
       })
-      console.log(finalCocktails);
       return finalCocktails;
     });
 }
@@ -58,7 +57,6 @@ export function getAlcohol(alcohol, order, page=1) {
       Authorization: `Token token=${apiKeyLCBO}`
     }
   }).then((res) => {
-    console.log(res);
     const filteredAlcohol = res.data.result.filter((libation) => {
       return libation.primary_category === 'Spirits' 
       && libation.tertiary_category !== 'Fruit Flavoured'

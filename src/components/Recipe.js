@@ -10,18 +10,33 @@ class Recipe extends Component {
     }
   }
   componentDidMount(){
-    this.getLcbo();
+    this.getLcbo(); 
   }
+
   getLcbo = () => {
-    const bar = []
+    let bar = ['testing'];
+    // console.log(typeof bar);
     getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
       bar.push(res[0]);
     })
     getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
       bar.push(res[0]);
     })
-    // console.log(bar);
+    this.setState({
+      bar
+    })
+    console.log(this.state.bar);
+    // console.log(typeof bar);
+    // this.setState({
+    //   bar: 
+    // })
+    // console.log(typeof this.state.bar);
   }
+
+  // convertPrice = (i) => {
+  //   const price = this.state.bar[i].regular_price_in_cents / 100
+  //   console.log(price);
+  // }
 
   render(){
     const instructions = this.props.recipe.ingredientLines
@@ -32,7 +47,7 @@ class Recipe extends Component {
         <div className="recipe__description">
           <ul>
             {instructions ? instructions.map((ingredient) => {
-              return (<li key={this.props.recipe.id} >{ingredient}</li>)
+              return (<li key={ingredient} >{ingredient}</li>)
             }): null} 
           </ul>
         </div>
@@ -41,14 +56,14 @@ class Recipe extends Component {
           <figure className="alcoholInfo__box">
           {/* product picture */}
             <figcaption>
-              <a href="/">basic</a>
+              {/* <a href="/">{ this.state.bar ? this.convertPrice(0) : null }</a> */}
             </figcaption>
           </figure>
   
           <figure className="alcoholInfo__box">
             {/* product picture */}
             <figcaption>
-              <a href="/">expensive</a>
+              {/* <a href="/">{this.state.bar ? this.convertPrice(1) : null}</a> */}
             </figcaption>
           </figure>
         </div>
