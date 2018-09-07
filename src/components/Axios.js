@@ -24,6 +24,7 @@ export function getCocktails(alcohol) {
         && cocktail.sourceDisplayName !== 'Vegan Gretchen'
         && !cocktail.recipeName.includes("Ham");
       })
+      console.log(finalCocktails);
       return finalCocktails;
     });
 }
@@ -42,8 +43,7 @@ export function getRecipe(cocktail) {
   });
 }
 
-export function getAlcohol(alcohol) {
-  console.log('about to call axios');
+export function getAlcohol(alcohol, order, page=1) {
   return axios({
     method: 'GET',
     url: 'https://lcboapi.com/products',
@@ -51,20 +51,20 @@ export function getAlcohol(alcohol) {
     params: {
       q: alcohol,
       per_page: 25,
-      order: 'regular_price_in_cents.asc'
+      order: order,
+      page: page
     },
     headers: {
       Authorization: `Token token=${apiKeyLCBO}`
     }
   }).then((res) => {
+    console.log(res);
     const filteredAlcohol = res.data.result.filter((libation) => {
       return libation.primary_category === 'Spirits' 
       && libation.tertiary_category !== 'Fruit Flavoured'
       && libation.package_unit_volume_in_milliliters >= 750;
-
-      
     })
-    console.log(filteredAlcohol)
+    return filteredAlcohol
   })
 }
 

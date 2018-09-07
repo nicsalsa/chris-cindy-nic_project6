@@ -31,7 +31,6 @@ class App extends Component {
   // }
   randomizer = (arr) => {
     const item = arr[Math.floor(Math.random() * arr.length)];
-    console.log(item);
     return item;
   }
   getUserChoice = (choiceOfAlcohol) => {
@@ -55,7 +54,7 @@ class App extends Component {
     const userDrink = this.randomizer(this.state.cocktailArray);
     this.getRecipeDetails(userDrink.id);
   }
-  
+
   getRecipeDetails = (drink) => {
     getRecipe(drink).then((res) => {
       const userDrink = res.data
@@ -65,8 +64,6 @@ class App extends Component {
     })
   }
 
- 
-
   
   
   render() {
@@ -75,9 +72,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={Landing} />
           <Route exact path="/Form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
-          <Route exact path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
-          
-          <Route exact path ="/Recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          <Route path="/Results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
         </div>
       </Router>
     )
