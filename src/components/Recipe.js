@@ -6,32 +6,36 @@ class Recipe extends Component {
   constructor(){
     super();
     this.state = {
-      bar: []
+      bar: [],
+      page: 1
     }
   }
   
   componentDidMount(){
     this.getLcbo();
   }
+  
+  getNextPage = (order) => {
+    if (!res[0]) {
+      const page = this.state.page + 1;
+      this.setState({
+        page
+      });
+      getAlcohol(this.props.alcohol, order, page).then((res) => {
+        bar.push(res[0])
+      });
+  }
 
   getLcbo = () => {
     const bar = []
-    if(this.props.alcohol === 'vodka') {
-      getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc', 2).then((res) => {
-        bar.push(res[0]);
-      })
-      getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
-        bar.push(res[0]);
-      })
-    } else {
-      getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
-        bar.push(res[0]);
-      })
-      getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
-        bar.push(res[0]);
-      })
-    }
-    // console.log(bar);
+    getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc').then((res) => {
+      getNextPage();
+      bar.push(res[0]);
+    });
+    getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc').then((res) => {
+      bar.push(res[0]);
+    });
+
   }
 
   render(){
