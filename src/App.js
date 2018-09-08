@@ -3,47 +3,41 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // COMPONENTS
-import { getCocktails, getRecipe, getAlcohol } from './components/Axios';
+import { getCocktails, getRecipe } from './components/Axios';
 import Landing from './components/Landing';
 import Form from './components/Form';
 import Results from './components/Results';
-import Recipe from './components/Recipe';
-
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      choiceOfAlcohol: '',
+      alcoholChoice: '',
       cocktailArray: [],
       userDrink: ''
     }
   }
   
-  randomizer = (arr) => {
-    const item = arr[Math.floor(Math.random() * arr.length)];
-    return item;
-  }
-  getUserChoice = (choiceOfAlcohol) => {
-    this.setState({
-      choiceOfAlcohol
-    });
-    getCocktails(choiceOfAlcohol).then((cocktailArray) => {
-
-      const uniqueCocktailArray = new Set(cocktailArray);
-      const uniqueCocktailArray2 = Array.from(uniqueCocktailArray)
-      this.setState({
-        cocktailArray: uniqueCocktailArray2
-      }, () => {
-        this.getRandomCocktail();
-      }
-    )  
-    })
+  randomizer = (max, min = 0) => {
+    return Math.floor(Math.random() * max + min);
   }
 
   getRandomCocktail = () => {
-    const userDrink = this.randomizer(this.state.cocktailArray);
+    const userDrink = this.state.cocktailArray[this.randomizer(this.state.cocktailArray.length)];
     this.getRecipeDetails(userDrink.id);
+  }
+
+  getUserChoice = (alcoholChoice) => {
+    this.setState({
+      alcoholChoice
+    });
+    getCocktails(alcoholChoice).then((cocktailArray) => {
+      const uniqueCocktailSet = new Set(cocktailArray);
+      const uniqueCocktailArray = Array.from(uniqueCocktailSet);
+      this.setState({
+        cocktailArray: uniqueCocktailArray
+      }, () => { this.getRandomCocktail(); });  
+    })
   }
 
   getRecipeDetails = (drink) => {
@@ -54,10 +48,6 @@ class App extends Component {
       });
     })
   }
-
- 
-
-  
   
   render() {
     return (
@@ -65,9 +55,7 @@ class App extends Component {
         <div className="App">
           <Route exact path="/" component={Landing} />
           <Route exact path="/form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
-          <Route exact path="/results" render={(props) => <Results {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
-          
-          <Route exact path ="/recipe" render={(props) => <Recipe {...props} recipe={this.state.userDrink} alcohol={this.state.choiceOfAlcohol} />} />
+          <Route path="/results" render={(props) => <Results {...props} alcohol={this.state.alcoholChoice} recipe={this.state.userDrink}/>} />
         </div>
       </Router>
     )
