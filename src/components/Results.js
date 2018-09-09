@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './../partials/_results.scss';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Recipe from './Recipe';
 
-
-
 class Results extends Component {
-
   render(){
     return(
       <section className="results">
@@ -20,7 +17,6 @@ class Results extends Component {
           <h3 className="h3">Featuring</h3>
           <p className="results__beverages">{`Moon Dollar Coffee & ${this.props.alcohol}`}</p>
         </div>
-
         
         <Link to="/form" >
           <button className="btn">Shake it up</button>
@@ -30,9 +26,7 @@ class Results extends Component {
           <button className="btn">Serve it up</button>
         </Link>
         
-        <Route exact path="/results/recipe" render={(props) => <Recipe {...props} recipe={this.props.recipe} alcohol={this.props.alcohol} />} />
-
-
+        <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.props.recipe}/>} />
       </section>
     )
   }
