@@ -5,3 +5,28 @@ $brown: #4f1b00;
 $silver: #b6afa0;
 $yellow: #f1bc2b;
 $black: #212227;
+$white: ivory;
+
+//mixins
+
+@mixin breakPoint($point) {
+    @if $point == break10 {
+        @media (max-width:1080px) { @content;}
+    }
+    @if $point == break20 {
+        @media (max-width:900px) { @content;}
+    }  
+    @if $point == break30 {
+        @media (max-width:850px) { @content;}
+    } 
+    @if $point == break40 {
+        @media (max-width:785px) { @content;}
+    } 
+    @if $point == break50 {
+        @media (max-width:650px) { @content;}
+    } 
+    @if $point == break60 {
+        @media (max-width:506px) { @content;}
+    }
+
+}

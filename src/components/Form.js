@@ -29,8 +29,9 @@ class Form extends Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit} className="form">
-        <fieldset onChange={this.handleChange} className="h3">Choose your poison
+      <form onSubmit={this.handleSubmit} className="form wrapper">
+        <h3 className="h3">Pick your poison</h3>
+        <fieldset onChange={this.handleChange} className="clearfix">
           <input type="radio" name="alcohol" className="form__input" value="vodka" id="vodka" />
           <label className="form__label" htmlFor="vodka">Vodka</label>
 

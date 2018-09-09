@@ -55,6 +55,8 @@ class Recipe extends Component {
 render() {
 
     const instructions = this.props.recipe.ingredientLines;
+    const newInstructions = new Set(instructions);
+    console.log(newInstructions);
     return (
       <section className="recipe">
         <h2 className="h2">{this.props.recipe.name}</h2>
