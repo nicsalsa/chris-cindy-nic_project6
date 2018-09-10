@@ -1,0 +1,25 @@
+.form {
+   height: 100vh;
+   fieldset {
+      border: none;
+   }
+}
+// hiding the radio button
+input[type = radio] {
+    visibility:hidden;
+}
+label {
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    width: 300px;
+    font-size: 2rem;
+    &:hover {
+        background: $yellow;
+        box-shadow: 2px 0 5px darkslategray;
+    }
+}
+input:checked + label {
+    background: $yellow;
+    box-shadow: 2px 0 5px darkslategray;
+}
