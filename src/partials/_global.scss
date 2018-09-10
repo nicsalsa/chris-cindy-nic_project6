@@ -38,8 +38,14 @@ h3.h3 {
 		font-size: 1.5rem;
 	}
 }
+.App {
+	width: 100vw;
+	height: 100vh;
+	background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
+	background-size: cover;
+}
 .wrapper {
-	width: 90%;
+	width: 100%;
 	max-width: 1080px;
 	margin: 0 auto;
 }

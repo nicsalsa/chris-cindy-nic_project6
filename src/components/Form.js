@@ -29,7 +29,7 @@ class Form extends Component {
 
   render(){
     return(
-      <div className="formWrapper">
+      // <div className="formWrapper">
         <form onSubmit={this.handleSubmit} className="form wrapper">
           <h2 className="h2">Pick your poison</h2>
           <fieldset onChange={this.handleChange} className="clearfix fieldset">
@@ -53,7 +53,7 @@ class Form extends Component {
           </fieldset>
           <button className="btn">Submit</button>
         </form>
-      </div>
+      // </div>
     )
   }
 }

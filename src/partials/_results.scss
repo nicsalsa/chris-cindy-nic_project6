@@ -1,10 +1,10 @@
 //RESULTS STYLING
 .results {
    background: $silver;
-   height: 100vh;
+   height: 100%;
    padding: 2rem 0;
+   overflow: scroll;
    .resultsWrap {
-      overflow: scroll;
       .h2 {
          font-size: 5rem;
          @include breakPoint(break60){

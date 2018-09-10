@@ -1,8 +1,9 @@
 // LANDING COMPONENT STYLES
 .landing {
-   background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
-   background-size: cover;
-   height: 100vh;
+//    background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
+//    background-size: cover;
+   height: 100%;
+   overflow: scroll;
    &__description {
       color: $white;
       width: 90%;
