@@ -22,32 +22,32 @@ class App extends Component {
     return Math.floor(Math.random() * max + min);
   }
 
-  // getRandomCocktail = () => {
-  //   const userDrink = this.state.cocktailArray[this.randomizer(this.state.cocktailArray.length)];
-  //   this.getRecipeDetails(userDrink.id);
-  // }
+  getRandomCocktail = () => {
+    const userDrink = this.state.cocktailArray[this.randomizer(this.state.cocktailArray.length)];
+    this.getRecipeDetails(userDrink.id);
+  }
 
   getUserChoice = (alcoholChoice) => {
     this.setState({
       alcoholChoice
     });
-    // getCocktails(alcoholChoice).then((cocktailArray) => {
-    //   const uniqueCocktailSet = new Set(cocktailArray);
-    //   const uniqueCocktailArray = Array.from(uniqueCocktailSet);
-    //   // this.setState({
-      //   cocktailArray: uniqueCocktailArray
-      // }, () => { this.getRandomCocktail(); });  
-    // })
+    getCocktails(alcoholChoice).then((cocktailArray) => {
+      const uniqueCocktailSet = new Set(cocktailArray);
+      const uniqueCocktailArray = Array.from(uniqueCocktailSet);
+      this.setState({
+        cocktailArray: uniqueCocktailArray
+      }, () => { this.getRandomCocktail(); });  
+    })
   }
 
-  // getRecipeDetails = (drink) => {
-  //   getRecipe(drink).then((res) => {
-  //     const userDrink = res.data
-  //     this.setState({
-  //       userDrink
-  //     });
-  //   })
-  // }
+  getRecipeDetails = (drink) => {
+    getRecipe(drink).then((res) => {
+      const userDrink = res.data
+      this.setState({
+        userDrink
+      });
+    })
+  }
   
   render() {
     return (

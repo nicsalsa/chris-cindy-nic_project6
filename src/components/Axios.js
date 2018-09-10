@@ -58,23 +58,5 @@ export function getAlcohol(alcohol, page = 1) {
       Authorization: `Token token=${lcboKey}`
     }
   })
-  // .then((res) => {
-  //   const alcohol = res.data.result;
-  //   const filteredAlcohol = alcohol.filter((libation) => {
-  //     return libation.primary_category === 'Spirits' 
-  //     && libation.tertiary_category !== 'Fruit Flavoured'
-  //     && libation.package_unit_volume_in_milliliters >= 750;
-  //   });
-  //   console.log(filteredAlcohol);
-  //   return filteredAlcohol;
-  // });
-}
-
-export function filterAlcohol(arr) {
-  const finalArr = arr.filter((libation) => {
-    return libation.primary_catgeory === 'Spirits';
-  })
-  // console.log(finalArr);
-  return finalArr;
 }
 

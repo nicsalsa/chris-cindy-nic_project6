@@ -15,21 +15,22 @@ class Recipe extends Component {
     
   getLcbo = () => {
     const calls = [];
+
     for (let page = 1; page <= 11; page++) {
       calls.push(getAlcohol(this.props.alcohol, page));
     }
     
     Promise.all(calls).then((res) => {
       const allProduct = [];
+      
       res.forEach((response) => {
         response.data.result.forEach((product) => {
           allProduct.push(product);
         });
       })
-      
-      console.log('filter my alcohol');
-      
+            
       const spirits = allProduct.filter((product) => {
+        console.log(product.regular_price_in_cents, '|', product.name);
         return product.primary_category === "Spirits" 
         && product.volume_in_milliliters >= 700 
         && product.image_thumb_url
@@ -46,8 +47,6 @@ class Recipe extends Component {
         cheap: descending[0],
         expensive: descending[(descending.length - 1)]
       })
-
-      console.log(descending);
     })
   }
   
@@ -57,7 +56,6 @@ class Recipe extends Component {
     }
     
   componentDidMount(){
-    console.log('component did mount');
     this.getLcbo(); 
   }
   
