@@ -1,8 +1,18 @@
-.form {
-   height: 100vh;
-   fieldset {
-      border: none;
-   }
+.formWrapper {
+    height: 100vh;
+    background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
+    background-size: cover;
+    color: $silver;
+    .form {
+       .fieldset {
+          border: none;
+       }
+    }
+    .btn:hover {
+        background: $silver;
+        color: $black;
+        
+    }
 }
 // hiding the radio button
 input[type = radio] {
@@ -15,11 +25,12 @@ label {
     width: 300px;
     font-size: 2rem;
     &:hover {
-        background: $yellow;
+        background: $brown;
         box-shadow: 2px 0 5px darkslategray;
     }
 }
 input:checked + label {
-    background: $yellow;
+    background: $silver;
+    color: $brown;
     box-shadow: 2px 0 5px darkslategray;
 }
