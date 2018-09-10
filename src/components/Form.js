@@ -29,29 +29,31 @@ class Form extends Component {
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit} className="form wrapper">
-        <h3 className="h3">Pick your poison</h3>
-        <fieldset onChange={this.handleChange} className="clearfix">
-          <input type="radio" name="alcohol" className="form__input" value="vodka" id="vodka" />
-          <label className="form__label" htmlFor="vodka">Vodka</label>
+      <div className="formWrapper">
+        <form onSubmit={this.handleSubmit} className="form wrapper">
+          <h2 className="h2">Pick your poison</h2>
+          <fieldset onChange={this.handleChange} className="clearfix fieldset">
+            <input type="radio" name="alcohol" className="form__input" value="vodka" id="vodka" />
+            <label className="form__label" htmlFor="vodka">Vodka</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="tequila" id="tequila" />
-          <label htmlFor="tequila">Tequila</label>
+            <input type="radio" name="alcohol" className="form__input" value="tequila" id="tequila" />
+            <label htmlFor="tequila">Tequila</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="whiskey" id="whiskey" />
-          <label className="form__label" htmlFor="whiskey">Whiskey</label>
+            <input type="radio" name="alcohol" className="form__input" value="whiskey" id="whiskey" />
+            <label className="form__label" htmlFor="whiskey">Whiskey</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="brandy" id="brandy" />
-          <label className="form__label" htmlFor="brandy">Brandy</label>
+            <input type="radio" name="alcohol" className="form__input" value="brandy" id="brandy" />
+            <label className="form__label" htmlFor="brandy">Brandy</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="bourbon" id="bourbon" />
-          <label className="form__label" htmlFor="bourbon">Bourbon</label>
+            <input type="radio" name="alcohol" className="form__input" value="gin" id="gin" />
+            <label className="form__label" htmlFor="gin">Gin</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
-          <label className="form__label" htmlFor="rum">Rum</label>
-        </fieldset>
-        <button className="btn">Submit</button>
-      </form>
+            <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
+            <label className="form__label" htmlFor="rum">Rum</label>
+          </fieldset>
+          <button className="btn">Submit</button>
+        </form>
+      </div>
     )
   }
 }

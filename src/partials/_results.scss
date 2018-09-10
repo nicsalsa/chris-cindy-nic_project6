@@ -1,0 +1,55 @@
+//RESULTS STYLING
+.results {
+   background: $silver;
+   height: 100vh;
+   padding: 2rem 0;
+   .resultsWrap {
+      overflow: scroll;
+      .h2 {
+         font-size: 5rem;
+         @include breakPoint(break60){
+            padding-bottom: 2rem;
+            font-size: 3rem;
+         }
+      }
+      .btn {
+         width: 45%;
+         font-size: 3rem;
+         &:hover {
+            background: $brown;
+            color: $white;
+         }
+         &--shake {
+            float: left;
+         }
+         &--serve {
+            float: right;
+         }
+         @include breakPoint(break60) {
+            font-size: 1.2rem;
+         }
+      }
+
+   }
+}
+
+//Item that contains Figure and figcaption - inside of results
+.resultsItem {
+   &__image {
+      border-radius: 20px;
+      border: 2px solid $black;
+   }
+   &__description {
+      padding: 1rem 0;
+      .h3, &--beverages {
+         float: left;
+      }
+      .h3 {
+         width: 35%;
+      }
+      &--beverages {
+         font-size: 1.5rem;
+         width: 65%;
+      }
+   }
+}
