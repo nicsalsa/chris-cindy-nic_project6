@@ -44,8 +44,8 @@ class Form extends Component {
           <input type="radio" name="alcohol" className="form__input" value="brandy" id="brandy" />
           <label className="form__label" htmlFor="brandy">Brandy</label>
 
-          <input type="radio" name="alcohol" className="form__input" value="bourbon" id="bourbon" />
-          <label className="form__label" htmlFor="bourbon">Bourbon</label>
+          <input type="radio" name="alcohol" className="form__input" value="gin" id="gin" />
+          <label className="form__label" htmlFor="gin">Gin</label>
 
           <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
           <label className="form__label" htmlFor="rum">Rum</label>

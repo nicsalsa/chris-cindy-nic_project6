@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getAlcohol } from './Axios';
+import { getAlcohol, filterAlcohol } from './Axios';
 import './../partials/_recipe.scss';
 import { Link } from 'react-router-dom';
 
@@ -14,32 +14,41 @@ class Recipe extends Component {
   }
     
   getLcbo = () => {
-    console.log('calling to lcbo');
-    for (let page = 1; page < 4; page++) {
-      if (!this.state.cheap) {
-        getAlcohol(this.props.alcohol, 'regular_price_in_cents.asc', page).then((res) => {
-          if (res) {
-            console.log(res[0]);
-            this.setState({
-              cheap: res[0]
-            })
-          }
-        });
-      }
+    const calls = [];
+    for (let page = 1; page <= 11; page++) {
+      calls.push(getAlcohol(this.props.alcohol, page));
     }
     
-    for (let page = 1; page < 4; page++) {
-      if (!this.state.expensive) {
-        getAlcohol(this.props.alcohol, 'regular_price_in_cents.desc', page).then((res) => {
-          if (res) {
-            console.log(res[0]);
-            this.setState({
-              expensive: res[0]
-            })
-          }
+    Promise.all(calls).then((res) => {
+      const allProduct = [];
+      res.forEach((response) => {
+        response.data.result.forEach((product) => {
+          allProduct.push(product);
         });
-      }
-    }
+      })
+      
+      console.log('filter my alcohol');
+      
+      const spirits = allProduct.filter((product) => {
+        return product.primary_category === "Spirits" 
+        && product.volume_in_milliliters >= 700 
+        && product.image_thumb_url
+        && (product.tertiary_category === null || !product.tertiary_category.includes("Flavoured")) 
+        && !product.name.includes("Mott's")
+        && product.name.search(/[fF]ruit/) === -1;
+      })
+  
+      const descending = spirits.sort(function(a, b) {
+        return a.regular_price_in_cents - b.regular_price_in_cents;
+      });
+
+      this.setState({
+        cheap: descending[0],
+        expensive: descending[(descending.length - 1)]
+      })
+
+      console.log(descending);
+    })
   }
   
   convertPrice = (obj) => {
@@ -56,7 +65,7 @@ render() {
 
     const instructions = this.props.recipe.ingredientLines;
     const newInstructions = new Set(instructions);
-    console.log(newInstructions);
+    // console.log(newInstructions);
     return (
       <section className="recipe">
         <h2 className="h2">{this.props.recipe.name}</h2>
