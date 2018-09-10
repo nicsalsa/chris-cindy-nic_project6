@@ -59,7 +59,7 @@ render() {
     console.log(newInstructions);
     return (
       <section className="recipe">
-        <h2 className="h2">{this.props.recipe.name}</h2>
+        <h2 className="h2">Ingredients</h2>
   
         <div className="recipe__description">
           <ul>
@@ -70,19 +70,29 @@ render() {
         </div>
   
         <div className="recipe__alcoholInfo">
-          <figure className="alcoholInfo__box">
-          {this.state.cheap ? <img src={this.state.cheap.image_thumb_url} alt={this.state.cheap.description}/> : null }
-            <figcaption>
-              <a href="/">{ this.state.cheap ? this.convertPrice(this.state.cheap).toFixed(2) : null }</a>
-            </figcaption>
-          </figure>
+          {this.state.cheap 
+            ? 
+            <figure className="alcoholInfo__box">
+              <img className="alcoholInfo__box--img" src={this.state.cheap.image_thumb_url} alt={this.state.cheap.description} /> 
+              <figcaption className="alcoholInfo__box--description">
+                <a href={`http://www.lcbo.com/lcbo/product/${this.state.cheap.name.replace(/\s+/g, '-').toLowerCase()}/${this.state.cheap.id}`}>{this.state.cheap ? this.convertPrice(this.state.cheap).toFixed(2) : null}</a>
+              </figcaption>
+            </figure>
+            : null }
+
+            {this.state.expensive 
+            ?
+            <figure className="alcoholInfo__box">
+              <img src={this.state.expensive.image_thumb_url} alt={this.state.expensive.description}/> 
+              <figcaption>
+                <a href={`http://www.lcbo.com/lcbo/product/${this.state.expensive.name.replace(/[\s+\']/g, '-').toLowerCase()}/${this.state.expensive.id}`}>{this.convertPrice(this.state.expensive).toFixed(2)}</a>
+              </figcaption>
+            </figure>
+            : null }
+            
+
+
   
-          <figure className="alcoholInfo__box">
-          {this.state.expensive ? <img src={this.state.expensive.image_thumb_url} alt={this.state.expensive.description}/> : null }
-            <figcaption>
-              <a href="/">{this.state.expensive ? this.convertPrice(this.state.expensive).toFixed(2) : null }</a>
-            </figcaption>
-          </figure>
         </div>
             
         <Link to="/">

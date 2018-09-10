@@ -160,14 +160,24 @@ a {
   text-decoration: none; }
 
 h1.h1 {
-  font-family: 'Abril Fatface', cursive;
+  font-family: "Abril Fatface", cursive;
   font-size: 10rem;
   text-align: center;
   color: #b6afa0; }
 
-h3.h3 {
+h2.h2 {
   font-family: "Abril Fatface", cursive;
+  font-size: 5rem; }
+  @media (max-width: 506px) {
+    h2.h2 {
+      font-size: 3.5rem; } }
+
+h3.h3 {
+  font-family: "Assistant", sans-serif;
   font-size: 3.5rem; }
+  @media (max-width: 506px) {
+    h3.h3 {
+      font-size: 1.5rem; } }
 
 .wrapper {
   width: 90%;
@@ -178,6 +188,7 @@ h3.h3 {
   padding: 10px;
   width: 20rem;
   border-radius: 20px;
+  border: 1px solid ivory;
   background: transparent;
   letter-spacing: 2px;
   font-family: "Abril Fatface", cursive;
@@ -188,7 +199,10 @@ h3.h3 {
 
 .fontYellow {
   color: #f1bc2b;
-  font-weight: bold; }
+  text-shadow: 1px 1px 1px #212227; }
+
+.capitalize {
+  text-transform: capitalize; }
 
 html {
   font-size: 62.5%; }
@@ -236,10 +250,16 @@ body {
     .landing__description .floatLeft .btn {
       width: 15rem; } }
 
-.form {
-  height: 100vh; }
-  .form fieldset {
+.formWrapper {
+  height: 100vh;
+  background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
+  background-size: cover;
+  color: #b6afa0; }
+  .formWrapper .form .fieldset {
     border: none; }
+  .formWrapper .btn:hover {
+    background: #b6afa0;
+    color: #212227; }
 
 input[type=radio] {
   visibility: hidden; }
@@ -251,9 +271,50 @@ label {
   width: 300px;
   font-size: 2rem; }
   label:hover {
-    background: #f1bc2b;
+    background: #4f1b00;
     box-shadow: 2px 0 5px darkslategray; }
 
 input:checked + label {
-  background: #f1bc2b;
+  background: #b6afa0;
+  color: #4f1b00;
   box-shadow: 2px 0 5px darkslategray; }
+
+.results {
+  background: #b6afa0;
+  height: 100vh;
+  padding: 2rem 0; }
+  .results .resultsWrap {
+    overflow: scroll; }
+    .results .resultsWrap .h2 {
+      font-size: 5rem; }
+      @media (max-width: 506px) {
+        .results .resultsWrap .h2 {
+          padding-bottom: 2rem;
+          font-size: 3rem; } }
+    .results .resultsWrap .btn {
+      width: 45%;
+      font-size: 3rem; }
+      .results .resultsWrap .btn:hover {
+        background: #4f1b00;
+        color: ivory; }
+      .results .resultsWrap .btn--shake {
+        float: left; }
+      .results .resultsWrap .btn--serve {
+        float: right; }
+      @media (max-width: 506px) {
+        .results .resultsWrap .btn {
+          font-size: 1.2rem; } }
+
+.resultsItem__image {
+  border-radius: 20px;
+  border: 2px solid #212227; }
+
+.resultsItem__description {
+  padding: 1rem 0; }
+  .resultsItem__description .h3, .resultsItem__description--beverages {
+    float: left; }
+  .resultsItem__description .h3 {
+    width: 35%; }
+  .resultsItem__description--beverages {
+    font-size: 1.5rem;
+    width: 65%; }
