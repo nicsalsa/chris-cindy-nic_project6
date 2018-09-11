@@ -21,9 +21,11 @@ export function getCocktails(alcohol) {
     .then(function (res) {
       const cocktails = res.data.matches;
       const filteredCocktails = cocktails.filter((cocktail) => {
-        return !cocktail.recipeName.includes("Homemade") 
-        && cocktail.sourceDisplayName !== 'Vegan Gretchen'
-        && !cocktail.recipeName.includes("Ham");
+        return !cocktail.recipeName.includes("Homemade")
+        && !cocktail.recipeName.includes("DIY")
+        && !cocktail.recipeName.includes("How") 
+        && !cocktail.recipeName.includes("Ham")
+        && cocktail.sourceDisplayName !== 'Vegan Gretchen';
       })
       return filteredCocktails;
     });
