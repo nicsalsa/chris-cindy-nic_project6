@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getAlcohol } from './Axios';
 import './../partials/_recipe.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class Recipe extends Component {
 
@@ -98,9 +98,6 @@ render() {
           </div>
         : null }
 
-        {/* <Link to="/">
-          <button className="btn">Take me home</button>
-        </Link> */}
       </section>
     )
   }
