@@ -73,23 +73,24 @@ class Results extends Component {
         {this.state.userDrink ? 
           <div className="resultsWrap" style={{ backgroundImage: `url(${this.state.userDrink.images[0].imageUrlsBySize[360]})` }}>
             
-            <div className="nav">
+            <div className="nav clearfix">
               <Link to="/form" >
-                <button className="nav--back"><i class="fas fa-chevron-left"></i></button>
+                <button className="nav--back"><i className="fas fa-chevron-left"></i></button>
               </Link>
               <Link to="/">
-                <button className="nav--home"><i class="fas fa-home"></i></button>
+                <button className="nav--home"><i className="fas fa-home"></i></button>
               </Link>
             </div>
           
             <div className="resultsItem clearfix">
               <h2 className="h2 resultsItem__title">{this.state.userDrink.name}</h2>
-              <h3 className="h3 resultsItem__subtitle">Featuring</h3>
               <p className="resultsItem__description--beverages">
-                <span className="fontYellow"> Moon Dollar Coffee </span> and  
+                featuring <span className="fontYellow"> Moon Dollar Coffee </span> and  
                 <span className="capitalize fontYellow"> {`${this.props.alcohol}`}</span>
               </p>
             </div>
+
+            <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
            
             <div className="buttons">
               <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
@@ -97,7 +98,6 @@ class Results extends Component {
                 <button className="btn btn--serve">Serve it up</button>
               </Link>
             </div>
-            <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
 
           </div>
           : this.redirectToHome() }    

@@ -1,0 +1,63 @@
+.recipe {
+    margin: 2% auto;
+    max-width: 850px;
+    border-radius: 10px;
+    background-color: #fff;
+    .container {
+        height: 425px;
+        padding: 2%;
+    }
+}
+
+.recipe__description {
+    width: 40%;
+    height: 100%;
+    padding: 10px 20px 10px 10px;
+    float: left;
+    overflow: scroll;
+    li {
+        border-bottom: 0.25px dashed lightgrey;
+    }
+}
+
+.recipe__alcoholInfo {
+    width: 60%;
+    float: left;
+    border-left: 0.5px solid $black;
+    figure {
+        width: 100%;
+        max-width: 100%;
+        &:first-child {
+            border-bottom: 0.5px solid $black;
+        }
+        img {
+            width: 30%;
+            float: left;
+        }
+        figcaption {
+            width: 70%;
+            float: left;
+            position: relative;
+            .alcoholInfo__text {
+                position: absolute;
+                top: 50%;
+                transform: translateY(25%);
+                h3 {
+                    font-family: $heading-font;
+                    font-size: 2.4rem;
+                    letter-spacing: 0.25rem;
+                }
+                .alcohol__price--lrg {
+                    font-size: 3.0rem;
+                }
+                a {
+                 color: $black;   
+                 &:hover {
+                     border-bottom: 1px solid $black;
+                 }
+                }
+                
+            }
+        }
+    }
+}
