@@ -186,7 +186,7 @@ h3.h3 {
   background-size: cover; }
 
 .wrapper {
-  width: 100%;
+  width: 95%;
   max-width: 1080px;
   margin: 0 auto; }
 
@@ -284,17 +284,71 @@ input:checked + label {
   color: #4f1b00;
   box-shadow: 2px 0 5px darkslategray; }
 
+.nav--back, .nav--home {
+  color: ivory;
+  width: 45%;
+  border: none;
+  background: none;
+  padding: 0; }
+  .nav--back:hover, .nav--home:hover {
+    color: #f1bc2b; }
+
+.nav--back {
+  float: left; }
+
+.nav--home {
+  float: right; }
+
+.nav i {
+  font-size: 3rem; }
+  .nav i:hover {
+    color: #f1bc2b; }
+
 .results {
   background: #b6afa0;
   height: 100%;
-  padding: 2rem 0;
   overflow: scroll; }
-  .results .resultsWrap .h2 {
-    font-size: 5rem; }
+  .results .resultsWrap {
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    max-height: 100%; }
+    .results .resultsWrap .btn {
+      width: 45%;
+      font-size: 3rem;
+      color: ivory; }
+      .results .resultsWrap .btn:hover {
+        background: #b6afa0;
+        color: ivory;
+        text-shadow: 1px 1px 1px #212227; }
+      .results .resultsWrap .btn--shake {
+        float: left; }
+      .results .resultsWrap .btn--serve {
+        float: right; }
+      @media (max-width: 506px) {
+        .results .resultsWrap .btn {
+          font-size: 1.2rem; } }
+
+.resultsItem {
+  padding: 16rem 0 10rem 0;
+  color: ivory;
+  padding: 1rem 0; }
+  .resultsItem .resultsItem__title {
+    font-size: 5rem;
+    color: ivory;
+    height: 50%;
+    text-align: center; }
     @media (max-width: 506px) {
-      .results .resultsWrap .h2 {
+      .resultsItem .resultsItem__title {
         padding-bottom: 2rem;
         font-size: 3rem; } }
+  .resultsItem .resultsItem__subtitle, .resultsItem__description--beverages {
+    text-align: center; }
+  .resultsItem .resultsItem__subtitle {
+    font-size: 2rem; }
   .results .resultsWrap .btn {
     width: 45%;
     font-size: 3rem; }
