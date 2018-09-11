@@ -43,7 +43,7 @@ export function getCocktails(alcohol) {
   });
 }
 
-export function getAlcohol(alcohol, order, page = 1) {
+export function getAlcohol(alcohol, page = 1) {
   return axios({
     method: 'GET',
     url: 'https://lcboapi.com/products',
@@ -51,22 +51,12 @@ export function getAlcohol(alcohol, order, page = 1) {
     params: {
       q: alcohol,
       per_page: 25,
-      order: order,
+      order: 'regular_price_in_cents.asc',
       page: page
     },
     headers: {
       Authorization: `Token token=${lcboKey}`
     }
-  }).then((res) => {
-    const alcohol = res.data.result;
-    const filteredAlcohol = alcohol.filter((libation) => {
-      return libation.primary_category === 'Spirits' 
-      && libation.tertiary_category !== 'Fruit Flavoured'
-      && libation.package_unit_volume_in_milliliters >= 750;
-    });
-    console.log(filteredAlcohol);
-    return filteredAlcohol;
-  });
+  })
 }
-
 

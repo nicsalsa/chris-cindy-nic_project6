@@ -179,8 +179,14 @@ h3.h3 {
     h3.h3 {
       font-size: 1.5rem; } }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+  background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
+  background-size: cover; }
+
 .wrapper {
-  width: 90%;
+  width: 100%;
   max-width: 1080px;
   margin: 0 auto; }
 
@@ -213,9 +219,8 @@ body {
   font-weight: 400; }
 
 .landing {
-  background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
-  background-size: cover;
-  height: 100vh; }
+  height: 100%;
+  overflow: scroll; }
   .landing__description {
     color: ivory;
     width: 90%;
@@ -250,16 +255,16 @@ body {
     .landing__description .floatLeft .btn {
       width: 15rem; } }
 
-.formWrapper {
-  height: 100vh;
-  background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
-  background-size: cover;
-  color: #b6afa0; }
-  .formWrapper .form .fieldset {
+.form {
+  height: 100%;
+  color: #b6afa0;
+  overflow: scroll; }
+  .form .fieldset {
     border: none; }
-  .formWrapper .btn:hover {
-    background: #b6afa0;
-    color: #212227; }
+
+.btn:hover {
+  background: #b6afa0;
+  color: #212227; }
 
 input[type=radio] {
   visibility: hidden; }
@@ -281,29 +286,28 @@ input:checked + label {
 
 .results {
   background: #b6afa0;
-  height: 100vh;
-  padding: 2rem 0; }
-  .results .resultsWrap {
-    overflow: scroll; }
-    .results .resultsWrap .h2 {
-      font-size: 5rem; }
-      @media (max-width: 506px) {
-        .results .resultsWrap .h2 {
-          padding-bottom: 2rem;
-          font-size: 3rem; } }
-    .results .resultsWrap .btn {
-      width: 45%;
-      font-size: 3rem; }
-      .results .resultsWrap .btn:hover {
-        background: #4f1b00;
-        color: ivory; }
-      .results .resultsWrap .btn--shake {
-        float: left; }
-      .results .resultsWrap .btn--serve {
-        float: right; }
-      @media (max-width: 506px) {
-        .results .resultsWrap .btn {
-          font-size: 1.2rem; } }
+  height: 100%;
+  padding: 2rem 0;
+  overflow: scroll; }
+  .results .resultsWrap .h2 {
+    font-size: 5rem; }
+    @media (max-width: 506px) {
+      .results .resultsWrap .h2 {
+        padding-bottom: 2rem;
+        font-size: 3rem; } }
+  .results .resultsWrap .btn {
+    width: 45%;
+    font-size: 3rem; }
+    .results .resultsWrap .btn:hover {
+      background: #4f1b00;
+      color: ivory; }
+    .results .resultsWrap .btn--shake {
+      float: left; }
+    .results .resultsWrap .btn--serve {
+      float: right; }
+    @media (max-width: 506px) {
+      .results .resultsWrap .btn {
+        font-size: 1.2rem; } }
 
 .resultsItem__image {
   border-radius: 20px;

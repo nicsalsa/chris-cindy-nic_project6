@@ -1,9 +1,10 @@
-.formWrapper {
-    height: 100vh;
-    background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
-    background-size: cover;
-    color: $silver;
+
     .form {
+        height: 100%;
+        // background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
+        // background-size: cover;
+        color: $silver;
+        overflow: scroll;
        .fieldset {
           border: none;
        }
@@ -13,7 +14,7 @@
         color: $black;
         
     }
-}
+
 // hiding the radio button
 input[type = radio] {
     visibility:hidden;
