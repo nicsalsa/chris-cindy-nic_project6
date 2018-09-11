@@ -54,10 +54,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          {/* <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/form" render={(props) => <Form {...props} getUserChoice={this.getUserChoice} />} />
-          <Route path="/results" render={(props) => <Results {...props} alcohol={this.state.alcoholChoice} recipe={this.state.userDrink} />} /> */}
-          <Preloader />
+          <Route path="/results" render={(props) => <Results {...props} alcohol={this.state.alcoholChoice} recipe={this.state.userDrink} />} />
+          {/* <Preloader /> */}
         </div>
       </Router>
     )
