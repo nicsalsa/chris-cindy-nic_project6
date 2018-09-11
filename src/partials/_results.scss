@@ -3,10 +3,9 @@
 .nav {
    &--back, &--home {
       color: $white;
-      width: 45%;
       border: none;
       background: none;
-      padding: 0;
+      padding: 20px;
       &:hover {
          color: $yellow;
       }
@@ -35,28 +34,37 @@
       background-size: cover;
       background-color: hsla(0, 0, 0, 0.5); 
       background-blend-mode: overlay;   
-      height: 100%;
       width: 100%;
-      overflow: scroll;
+      height: 100%;
       max-height: 100%;
-      .btn {
-         width: 45%;
-         font-size: 3rem;
-         color: $white;
-         &:hover {
-            background: $silver;
-            color: $white;
-            text-shadow: 1px 1px 1px $black;
-         }
-         &--shake {
-            float: left;
-         }
-         &--serve {
-            float: right;
-         }
-         @include breakPoint(break60) {
-            font-size: 1.2rem;
-         }
+      position: relative;
+      overflow: scroll;
+      .buttons {
+          padding: 10px 0;
+          position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        .btn {
+             font-size: 3rem;
+             color: $white;
+             border-bottom: 3px transparent solid;
+             &:hover {
+                // background: $silver;
+                color: $yellow;
+                border-bottom: 3px $brown solid;
+                // text-shadow: 1px 1px 1px $black;
+             }
+             &--shake {
+                float: left;
+             }
+             &--serve {
+                float: left;
+             }
+             @include breakPoint(break60) {
+                font-size: 1.2rem;
+             }
+          }
       }
      
       
@@ -79,9 +87,8 @@
       }
    }
    .resultsItem__subtitle, &__description--beverages {
+      font-size: 2.2rem;
+      font-style: italic;
       text-align: center;
-   }
-   .resultsItem__subtitle {
-      font-size: 2rem;
    }
 }

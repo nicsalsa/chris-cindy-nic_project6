@@ -159,10 +159,14 @@ ul {
 a {
   text-decoration: none; }
 
+h1, h2, h3 {
+  margin: 0;
+  padding: 0; }
+
 h1.h1 {
   font-family: "Abril Fatface", cursive;
   font-size: 10rem;
-  text-align: center;
+  line-height: 9rem;
   color: #b6afa0; }
 
 h2.h2 {
@@ -186,19 +190,22 @@ h3.h3 {
   background-size: cover; }
 
 .wrapper {
-  width: 95%;
-  max-width: 1080px;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto; }
 
 .btn {
-  padding: 10px;
-  width: 20rem;
-  border-radius: 20px;
-  border: 1px solid ivory;
+  padding: 10px 20px;
+  border: 0;
+  outline: 0;
   background: transparent;
-  letter-spacing: 2px;
+  color: #b6afa0;
   font-family: "Abril Fatface", cursive;
-  text-transform: uppercase; }
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: capitalize; }
+  .btn:hover {
+    color: #f1bc2b; }
 
 .floatLeft {
   float: left; }
@@ -216,28 +223,35 @@ html {
 body {
   font-family: "Assistant", sans-serif;
   font-size: 1.6rem;
-  font-weight: 400; }
+  font-weight: 400;
+  letter-spacing: 0.05rem; }
 
 .landing {
+  margin: 0 auto;
+  max-width: fit-content;
   height: 100%;
+  padding: 5% 3%;
   overflow: scroll; }
   .landing__description {
-    color: ivory;
-    width: 90%;
-    margin: 0 auto; }
+    width: fit-content;
+    height: 100%;
+    color: ivory; }
     .landing__description h1 {
-      padding-top: 5rem; }
+      display: block;
+      max-width: max-content; }
     .landing__description .floatLeft {
       width: 50%;
-      padding-left: 2.5%; }
+      margin-top: auto;
+      margin-bottom: 0; }
       .landing__description .floatLeft .textblock:first-child {
-        padding-top: 2rem;
-        font-size: 2.5rem;
+        font-size: 3rem;
+        line-height: 2.5rem;
+        font-style: italic;
         color: #f1bc2b; }
       .landing__description .floatLeft .textblock {
-        line-height: 1.6;
-        padding: 0 0 5rem 0;
-        font-size: 2rem; }
+        margin: 15% 0;
+        font-size: 2rem;
+        line-height: 2.5rem; }
 
 @media (max-width: 506px) {
   .landing__description h1 {
@@ -256,40 +270,56 @@ body {
       width: 15rem; } }
 
 .form {
+  margin: 0 25%;
+  width: 50%;
+  height: 100%;
+  padding: 5% 3%;
+  overflow: scroll;
   height: 100%;
   color: #b6afa0;
   overflow: scroll; }
+  @media (max-width: 900px) {
+    .form {
+      width: 100%;
+      margin: 0 10%; } }
+  .form h2 {
+    margin: 5% 0;
+    width: fit-content;
+    color: #f1bc2b; }
   .form .fieldset {
-    border: none; }
-
-.btn:hover {
-  background: #b6afa0;
-  color: #212227; }
+    border: none;
+    margin: 0;
+    padding: 0; }
+  .form .btn {
+    margin: 5% 0;
+    padding: 0;
+    font-size: 4rem;
+    color: #b6afa0; }
+    .form .btn:hover {
+      color: #f1bc2b; }
 
 input[type=radio] {
-  visibility: hidden; }
+  display: none; }
 
 label {
+  margin: 0;
+  font-family: "Abril Fatface", cursive;
   cursor: pointer;
   display: block;
-  padding: 6px;
-  width: 300px;
-  font-size: 2rem; }
+  padding: 10px 0px;
+  width: fit-content;
+  font-size: 4rem; }
   label:hover {
-    background: #4f1b00;
-    box-shadow: 2px 0 5px darkslategray; }
+    color: #4f1b00; }
 
 input:checked + label {
-  background: #b6afa0;
-  color: #4f1b00;
-  box-shadow: 2px 0 5px darkslategray; }
+  color: #f1bc2b; }
 
 .nav--back, .nav--home {
   color: ivory;
-  width: 45%;
   border: none;
   background: none;
-  padding: 0; }
+  padding: 20px; }
   .nav--back:hover, .nav--home:hover {
     color: #f1bc2b; }
 
@@ -312,25 +342,31 @@ input:checked + label {
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
-    height: 100%;
     width: 100%;
-    overflow: scroll;
-    max-height: 100%; }
-    .results .resultsWrap .btn {
-      width: 45%;
-      font-size: 3rem;
-      color: ivory; }
-      .results .resultsWrap .btn:hover {
-        background: #b6afa0;
+    height: 100%;
+    max-height: 100%;
+    position: relative;
+    overflow: scroll; }
+    .results .resultsWrap .buttons {
+      padding: 10px 0;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); }
+      .results .resultsWrap .buttons .btn {
+        font-size: 3rem;
         color: ivory;
-        text-shadow: 1px 1px 1px #212227; }
-      .results .resultsWrap .btn--shake {
-        float: left; }
-      .results .resultsWrap .btn--serve {
-        float: right; }
-      @media (max-width: 506px) {
-        .results .resultsWrap .btn {
-          font-size: 1.2rem; } }
+        border-bottom: 3px transparent solid; }
+        .results .resultsWrap .buttons .btn:hover {
+          color: #f1bc2b;
+          border-bottom: 3px #4f1b00 solid; }
+        .results .resultsWrap .buttons .btn--shake {
+          float: left; }
+        .results .resultsWrap .buttons .btn--serve {
+          float: left; }
+        @media (max-width: 506px) {
+          .results .resultsWrap .buttons .btn {
+            font-size: 1.2rem; } }
 
 .resultsItem {
   padding: 16rem 0 10rem 0;
@@ -346,9 +382,58 @@ input:checked + label {
         padding-bottom: 2rem;
         font-size: 3rem; } }
   .resultsItem .resultsItem__subtitle, .resultsItem__description--beverages {
+    font-size: 2.2rem;
+    font-style: italic;
     text-align: center; }
-  .resultsItem .resultsItem__subtitle {
-    font-size: 2rem; }
+
+.recipe {
+  margin: 2% auto;
+  max-width: 850px;
+  border-radius: 10px;
+  background-color: #fff; }
+  .recipe .container {
+    height: 425px;
+    padding: 2%; }
+
+.recipe__description {
+  width: 40%;
+  height: 100%;
+  padding: 10px 20px 10px 10px;
+  float: left;
+  overflow: scroll; }
+  .recipe__description li {
+    border-bottom: 0.25px dashed lightgrey; }
+
+.recipe__alcoholInfo {
+  width: 60%;
+  float: left;
+  border-left: 0.5px solid #212227; }
+  .recipe__alcoholInfo figure {
+    width: 100%;
+    max-width: 100%; }
+    .recipe__alcoholInfo figure:first-child {
+      border-bottom: 0.5px solid #212227; }
+    .recipe__alcoholInfo figure img {
+      width: 30%;
+      float: left; }
+    .recipe__alcoholInfo figure figcaption {
+      width: 70%;
+      float: left;
+      position: relative; }
+      .recipe__alcoholInfo figure figcaption .alcoholInfo__text {
+        position: absolute;
+        top: 50%;
+        transform: translateY(25%); }
+        .recipe__alcoholInfo figure figcaption .alcoholInfo__text h3 {
+          font-family: "Abril Fatface", cursive;
+          font-size: 2.4rem;
+          letter-spacing: 0.25rem; }
+        .recipe__alcoholInfo figure figcaption .alcoholInfo__text .alcohol__price--lrg {
+          font-size: 3.0rem; }
+        .recipe__alcoholInfo figure figcaption .alcoholInfo__text a {
+          color: #212227; }
+          .recipe__alcoholInfo figure figcaption .alcoholInfo__text a:hover {
+            border-bottom: 1px solid #212227; }
 
 @keyframes fill {
   0% {

@@ -69,10 +69,10 @@ render() {
       <section className="recipe">
 
         {this.state.cheap && this.state.expensive ?
-          <div className="container">
-            <h2 className="h2">Ingredients</h2>
+          <div className="container clearfix">
 
             <div className="recipe__description">
+              <h2 className="h2">Ingredients</h2>
               <ul>
                 {noRepeatInstructions.map((ingredient) => {
                   return (<li key={ingredient} >{ingredient}</li>)
@@ -80,18 +80,27 @@ render() {
               </ul>
             </div>
 
-            <div className="recipe__alcoholInfo">
-              <figure className="alcoholInfo__box">
-                <img className="alcoholInfo__box--img" src={this.state.cheap.image_thumb_url} alt={this.state.cheap.description} /> 
-                <figcaption className="alcoholInfo__box--description">
-                  <a href={`http://www.lcbo.com/lcbo/product/${this.state.cheap.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.cheap.id}`}>{this.state.cheap.name} ({this.state.cheap.volume_in_milliliters}mL), ${this.convertPrice(this.state.cheap).toFixed(2)}</a>
+            <div className="recipe__alcoholInfo clearfix">
+              <figure className="alcoholInfo__box clearfix">
+                <img className="alcoholInfo__box--img" src={this.state.cheap.image_thumb_url} alt={this.state.cheap.tasting_note} /> 
+                <figcaption className="alcoholInfo__box--description clearfix">
+                <div className="alcoholInfo__text">
+                  <h3>{this.state.cheap.name}</h3>
+                    <p className="alcohoInfo__price"><span className="alcohol__price--lrg">${this.convertPrice(this.state.cheap).toFixed(2)}</span> / {this.state.cheap.volume_in_milliliters}mL</p>
+                  <a href={`http://www.lcbo.com/lcbo/product/${this.state.cheap.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.cheap.id}`}>Order on lcbo.com</a>
+                </div>
                 </figcaption>
               </figure>
 
-              <figure className="alcoholInfo__box">
-                <img src={this.state.expensive.image_thumb_url} alt={this.state.expensive.description}/> 
-                <figcaption>
-                  <a href={`http://www.lcbo.com/lcbo/product/${this.state.expensive.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.expensive.id}`}>{this.state.expensive.name} ({this.state.expensive.volume_in_milliliters}mL), ${this.convertPrice(this.state.expensive).toFixed(2)}</a>
+              <figure className="alcoholInfo__box clearfix">
+                <img src={this.state.expensive.image_thumb_url} alt={this.state.expensive.tasting_note}/> 
+                <figcaption className="alcoholInfo__box--description clearfix">
+                  {/* <a href={`http://www.lcbo.com/lcbo/product/${this.state.expensive.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.expensive.id}`}>{this.state.expensive.name} ({this.state.expensive.volume_in_milliliters}mL), ${this.convertPrice(this.state.expensive).toFixed(2)}</a> */}
+                  <div className="alcoholInfo__text">
+                    <h3>{this.state.expensive.name}</h3>
+                    <p className="alcohoInfo__price"><span className="alcohol__price--lrg">${this.convertPrice(this.state.expensive).toFixed(2)}</span> / {this.state.expensive.volume_in_milliliters}mL</p>
+                    <a href={`http://www.lcbo.com/lcbo/product/${this.state.expensive.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.expensive.id}`}>Order on lcbo.com</a>
+                  </div>
                 </figcaption>
               </figure>
             </div>
