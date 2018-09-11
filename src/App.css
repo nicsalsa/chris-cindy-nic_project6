@@ -322,3 +322,28 @@ input:checked + label {
   .resultsItem__description--beverages {
     font-size: 1.5rem;
     width: 65%; }
+
+@keyframes fill {
+  0% {
+    margin-bottom: 0; }
+  16% {
+    margin-bottom: 100%;
+    height: 20px; }
+  50% {
+    margin-bottom: 0; }
+  100% {
+    margin-bottom: 0; } }
+
+.preloader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: white; }
+  .preloader--wrapper {
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    .preloader--wrapper svg {
+      width: 25%; }
