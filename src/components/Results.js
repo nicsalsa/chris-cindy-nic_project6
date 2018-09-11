@@ -70,40 +70,37 @@ class Results extends Component {
     console.log('render');
     return(
       <section className="results">
-      
         {this.state.userDrink ? 
-          <div className="resultsWrap wrapper">
+          <div className="resultsWrap" style={{ backgroundImage: `url(${this.state.userDrink.images[0].imageUrlsBySize[360]})` }}>
             
-            <h2 className="h2">{this.state.userDrink.name}</h2>
-
-            <figure className="resultsItem">
-              <img className="resultsItem__image" src={this.state.userDrink.images[0].imageUrlsBySize[360]} alt={`${this.state.userDrink.name}`}/>
-              <figcaption className="resultsItem__description clearfix">
-                <h3 className="h3">Featuring</h3>
-                <p className="resultsItem__description--beverages">
-                  <span className="fontYellow"> Moon Dollar Coffee</span> & 
-                  <span className="capitalize">{`${this.props.alcohol}`}</span>
-                </p>
-              </figcaption>
-            </figure>
-
-            <Link to="/form" >
-              <button className="btn btn--shake">Stir it up</button>
-            </Link>
-            
-            <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
-
-            <Link to="/results/recipe">
-              <button className="btn btn--serve">Serve it up</button>
-            </Link>
-
+            <div className="nav">
+              <Link to="/form" >
+                <button className="nav--back"><i class="fas fa-chevron-left"></i></button>
+              </Link>
+              <Link to="/">
+                <button className="nav--home"><i class="fas fa-home"></i></button>
+              </Link>
+            </div>
+          
+            <div className="resultsItem clearfix">
+              <h2 className="h2 resultsItem__title">{this.state.userDrink.name}</h2>
+              <h3 className="h3 resultsItem__subtitle">Featuring</h3>
+              <p className="resultsItem__description--beverages">
+                <span className="fontYellow"> Moon Dollar Coffee </span> and  
+                <span className="capitalize fontYellow"> {`${this.props.alcohol}`}</span>
+              </p>
+            </div>
+           
+            <div className="buttons">
+              <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
+              <Link to="/results/recipe">
+                <button className="btn btn--serve">Serve it up</button>
+              </Link>
+            </div>
             <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
+
           </div>
-          : this.redirectToHome() }
-      
-        <Link to="/">
-          <button className="btn">Take me home</button>
-        </Link>
+          : this.redirectToHome() }    
       </section>
     )
   }

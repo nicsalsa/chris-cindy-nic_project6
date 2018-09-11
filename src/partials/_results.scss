@@ -1,23 +1,52 @@
 //RESULTS STYLING
+//NAV BUTTONS
+.nav {
+   &--back, &--home {
+      color: $white;
+      width: 45%;
+      border: none;
+      background: none;
+      padding: 0;
+      &:hover {
+         color: $yellow;
+      }
+   }
+   &--back {
+      float: left;
+   }
+   &--home {
+      float: right;
+   }
+   i {
+      font-size: 3rem;
+      &:hover {
+         color: $yellow;
+      }
+   }
+}
+
+//RESULTS RENDERED
 .results {
    background: $silver;
    height: 100%;
-   padding: 2rem 0;
+   // padding: 2rem 0;
    overflow: scroll;
    .resultsWrap {
-      .h2 {
-         font-size: 5rem;
-         @include breakPoint(break60){
-            padding-bottom: 2rem;
-            font-size: 3rem;
-         }
-      }
+      background-size: cover;
+      background-color: hsla(0, 0, 0, 0.5); 
+      background-blend-mode: overlay;   
+      height: 100%;
+      width: 100%;
+      overflow: scroll;
+      max-height: 100%;
       .btn {
          width: 45%;
          font-size: 3rem;
+         color: $white;
          &:hover {
-            background: $brown;
+            background: $silver;
             color: $white;
+            text-shadow: 1px 1px 1px $black;
          }
          &--shake {
             float: left;
@@ -29,27 +58,30 @@
             font-size: 1.2rem;
          }
       }
-
+     
+      
    }
 }
 
-//Item that contains Figure and figcaption - inside of results
+
 .resultsItem {
-   &__image {
-      border-radius: 20px;
-      border: 2px solid $black;
+   padding: 16rem 0 10rem 0;
+   color: $white;
+   padding: 1rem 0;
+   .resultsItem__title {
+      font-size: 5rem;
+      color: $white;
+      height: 50%;
+      text-align: center;
+      @include breakPoint(break60){
+         padding-bottom: 2rem;
+         font-size: 3rem;
+      }
    }
-   &__description {
-      padding: 1rem 0;
-      .h3, &--beverages {
-         float: left;
-      }
-      .h3 {
-         width: 35%;
-      }
-      &--beverages {
-         font-size: 1.5rem;
-         width: 65%;
-      }
+   .resultsItem__subtitle, &__description--beverages {
+      text-align: center;
+   }
+   .resultsItem__subtitle {
+      font-size: 2rem;
    }
 }

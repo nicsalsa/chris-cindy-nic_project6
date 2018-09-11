@@ -25,6 +25,7 @@ export function getCocktails(alcohol) {
         && !cocktail.recipeName.includes("DIY")
         && !cocktail.recipeName.includes("How") 
         && !cocktail.recipeName.includes("Ham")
+          && !cocktail.recipeName.includes("#")
         && cocktail.sourceDisplayName !== 'Vegan Gretchen';
       })
       return filteredCocktails;
