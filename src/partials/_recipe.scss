@@ -62,3 +62,117 @@
         }
     }
 }
+
+//responsive mixins
+@include breakPoint(break30) {
+    .recipe {
+        margin: 2% 10%;
+        max-width: auto;
+        border-radius: 10px;
+        background-color: #fff;
+        .container {
+            height: 100%;
+            padding: 5%;
+        }
+    }
+
+    .recipe__description {
+        float: none;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+        margin-bottom: 2rem;
+        h2 {
+            font-size: 3rem;
+        }
+        li {
+            text-align: left;
+            padding: 1rem 0;
+            font-size: 2rem;
+            border-bottom: none;
+        }
+    }
+
+    .recipe__alcoholInfo {
+        width: 100%;
+        border-left: none;
+        .alcoholInfo__box {
+            width: 50%;
+            float: left;
+        }
+        figure {
+            &:first-child {
+                border-bottom: none;
+            }
+            figcaption {
+                position: static;
+                .alcoholInfo__text {
+                    position: static;
+                    transform: translateY(-5%);
+                    h3 {
+                        font-size: 2rem;
+                    }
+                    .alcohol__price--lrg {
+                        font-size: 2.5rem;
+                    }                    
+                }
+            }
+        }
+    }
+}
+
+@include breakPoint(break40) {
+    .recipe__alcoholInfo {
+        .alcoholInfo__box {
+            width: 100%;  
+        }
+        figure {
+            figcaption {
+                .alcoholInfo__text {
+                    transform: translateY(60%);
+                }
+            }
+        }
+    }
+}
+
+@include breakPoint(break50) {
+    .recipe__alcoholInfo {
+        figure {
+            figcaption {
+                .alcoholInfo__text {
+                    transform: translateY(30%);
+                }
+            }
+        }
+    }
+}
+
+@include breakPoint(break60){
+    .recipe__alcoholInfo {
+        .alcoholInfo__box {
+            margin-bottom: 20%;
+        }
+        figure {
+            text-align: center;
+            img {
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            figcaption {
+                width: 100%;
+                .alcoholInfo__text {
+                    transform: translateY(20%);
+                    h3 {
+                        font-size: 1.8rem;
+                    }
+                    .alcohol__price--lrg {
+                        font-size: 2rem;
+                    }                    
+                }
+            }
+        }
+    }
+}

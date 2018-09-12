@@ -99,15 +99,21 @@ class Results extends Component {
             <div className="resultsItem clearfix">
               <h2 className="h2 resultsItem__title">{this.state.userDrink.name}</h2>
               <p className="resultsItem__description--beverages">
-                featuring <span className="fontYellow"> Moon Dollar Coffee </span> and  
+                featuring <span className="fontYellow"> Moondollar Coffee </span> and  
                 <span className="capitalize fontYellow"> {`${this.props.alcohol}`}</span>
               </p>
             </div>
 
+<<<<<<< HEAD
             <Route path="/results/recipe" render={(props) => <Recipe {...props} recipeDidMount={this.recipeDidMount} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
             {this.state.preloader ? <Preloader /> : null}
 
             <div className="buttons">
+=======
+            <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
+           
+            <div className="buttons clearfix">
+>>>>>>> 6e28a45aa65357bd512555b29b3d71e2011d920e
               <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
               <Link to="/results/recipe">
                 <button onClick={this.renderPreloader} className="btn btn--serve">Serve it up</button>

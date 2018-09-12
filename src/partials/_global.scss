@@ -1,67 +1,40 @@
 @import './_utils.scss';
 
-// * { border: 0.5px red dashed; }
-
-body, h1, h2, h3, ul, li, p {
+body, ul, li {
 	margin: 0;
 	padding: 0;
-}
-img {
-	max-width: 100%;
-	display: block;
 }
 
 ul {
 	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 a {
 	text-decoration: none;
 }
 
-h1, h2, h3 {
-	margin: 0;
-	padding: 0;
+img {
+	max-width: 100%;
+	display: block;
 }
 
-h1.h1 {
-	font-family: $heading-font;
-	font-size: 10rem;
-	line-height: 9rem;
-	// text-align: center;
-	color: $silver;
-	// letter-spacing: 2px;
-}
-h2.h2 {
-	font-family: $heading-font;
-	font-size: 5rem;
-	@include breakPoint(break60) {
-		font-size: 3.5rem;
-	}
-}
-h3.h3 {
-	font-family: $main-font;
-	font-size: 3.5rem;
-	@include breakPoint(break60) {
-		font-size: 1.5rem;
-	}
-}
 .App {
-	width: 100vw;
 	height: 100vh;
 	background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
 	background-size: cover;
+	@include breakPoint(break50) {
+		background-position: 0 0;	
+	}
 }
+
 .wrapper {
-	width: 100%;
 	max-width: 1280px;
 	margin: 0 auto;
 }
 
 .btn {
 	padding: 10px 20px;
+	padding-left: 0;
 	border: 0;
 	outline: 0;
 	background: transparent;
@@ -74,14 +47,4 @@ h3.h3 {
 		color: $yellow;
 	}
 }
-.floatLeft {
-	float: left;
-}
-.fontYellow {
-	color: $yellow;
-	// font-weight: bold;
-	text-shadow: 1px 1px 1px $black;
-}
-.capitalize {
-	text-transform: capitalize;
-}
+
