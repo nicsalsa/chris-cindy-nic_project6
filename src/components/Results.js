@@ -85,14 +85,14 @@ class Results extends Component {
             <div className="resultsItem clearfix">
               <h2 className="h2 resultsItem__title">{this.state.userDrink.name}</h2>
               <p className="resultsItem__description--beverages">
-                featuring <span className="fontYellow"> Moon Dollar Coffee </span> and  
+                featuring <span className="fontYellow"> Moondollar Coffee </span> and  
                 <span className="capitalize fontYellow"> {`${this.props.alcohol}`}</span>
               </p>
             </div>
 
             <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
            
-            <div className="buttons">
+            <div className="buttons clearfix">
               <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
               <Link to="/results/recipe">
                 <button className="btn btn--serve">Serve it up</button>
