@@ -1,65 +1,74 @@
 // LANDING COMPONENT STYLES
 .landing {
-//    background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
-//    background-size: cover;
-//    width: 100%;
     margin: 0 auto;
-    max-width: fit-content;
     height: 100%;
     padding: 5% 3%;
-    overflow: scroll;
-    &__description {
-      width: fit-content;
-	  height: 100%;
-      color: $white;
-	  //   margin: 0 auto;
-      h1 {
-		  display: block;
-          max-width: max-content;
-		}
-		.floatLeft {
-			width: 50%;
-			margin-top: auto;
-			margin-bottom: 0;
-         .textblock:first-child {
-            font-size: 3rem;
-            line-height: 2.5rem;
-            font-style: italic;
-            color: $yellow;
-         }
-         .textblock {
-            margin: 15% 0;
-            font-size: 2rem;
-            line-height: 2.5rem;
-         }
-      }
-   }
+    overflow: hidden;
+}
+
+.landing__description {
+    color: $white;
+    width: 50%;
+    height: calc(100% - 9rem);
+    position: relative;
+}
+
+.landing__text {
+  position: absolute;
+  top: 0;
+}
+
+.textblock:first-child {
+    font-size: 3rem;
+    font-style: italic;
+    color: $yellow;
+}
+
+.textblock {
+    margin: 15% 0;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.landing__btn {
+  position: absolute;
+  bottom: 0;
 }
 
 //responsive mixins
-@include breakPoint(break60) {
-   .landing {
-      &__description {
-         h1 {
-            padding-top: 1rem;
-            font-size: 4rem;
-         }
-         .floatLeft {
-            width: 100%;
-            padding-left: 2.5%;
-            .textblock:first-child {
-               padding: 2.5rem 0 4rem 0;
-               font-size: 1.5rem;
-               color: $yellow;
-            }
-            .textblock:last-of-type {
-               display:none;
-            }
-            .btn {
-               width: 15rem;
-            }
-         }
-      }
-   }
+@include breakPoint(break30) {
+  .textblock:first-child {
+    font-size: 2.5rem;
+  }
+
+  .textblock {
+    margin: 20% 0;
+    font-size: 1.8rem;
+  }
+}
+
+@include breakPoint(break50) {
+  .landing__description {
+    width: 100%;
+    height: auto;
+}
+
+  .landing__description,
+  .landing__text,
+  .landing__btn {
+    position: static
+  }
+
+  .textblock:first-child {
+      font-size: 3rem;
+      font-style: italic;
+      color: $yellow;
+  }
+
+  .textblock {
+      margin: 15% 0;
+      font-size: 2rem;
+      line-height: 2.5rem;
+  }
 }
 

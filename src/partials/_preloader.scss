@@ -1,20 +1,22 @@
 
 
 @keyframes fill {
-  0%   { margin-bottom: 0; }
-  16%  { margin-bottom: 100%; height: 20px; }
-  50% { margin-bottom: 0; }
-  100% { margin-bottom: 0; }
+  0% {
+      fill: blue;
+  }
+  100% {
+      fill: black;
+  }
 }
 
 .preloader {
     width: 100%;
     height: 100%;
     position: relative;
-    color: white;
-    // border: 1px red solid;
+    color: #fff;
+    border: 1px red solid;
     &--wrapper {
-        // border: 1px blue solid;
+        border: 1px blue solid;
         margin: auto;
         text-align: center;
         position: absolute;
@@ -27,3 +29,16 @@
         }
     }
 }
+
+// .preloader {
+//     color: #fff;
+//     width: 20%;
+//     margin: 0 auto;
+//     position: relative;
+//     transform: translateY(-50%);
+//     top: 50%;
+//     // animation: fill 5s forwards;
+//     // overflow: hidden;
+// }
+
+

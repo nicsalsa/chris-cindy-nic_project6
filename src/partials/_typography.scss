@@ -8,3 +8,49 @@ body {
   font-weight: 400;
   letter-spacing: 0.05rem;
 }
+
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
+
+h1.h1 {
+	font-family: $heading-font;
+	font-size: 9rem;
+	line-height: 8rem;
+  color: $silver;
+  @include breakPoint(break10) {
+    font-size: 7rem;
+  }
+  @include breakPoint(break30) {
+    font-size: 5rem;
+  }
+  @include breakPoint(break50) {
+    line-height: 5rem;
+  }
+}
+
+h2.h2 {
+	font-family: $heading-font;
+	font-size: 5rem;
+	@include breakPoint(break60) {
+		font-size: 3.5rem;
+	}
+}
+
+h3.h3 {
+	font-family: $main-font;
+	font-size: 3.5rem;
+	@include breakPoint(break60) {
+		font-size: 1.5rem;
+	}
+}
+
+.fontYellow {
+	color: $yellow;
+	text-shadow: 1px 1px 1px $black;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}

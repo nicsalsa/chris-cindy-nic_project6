@@ -1,39 +1,29 @@
-
-    .form {
-        margin: 0 25%;
-        width: 50%;
-        height: 100%;
-        padding: 5% 3%;
-        overflow: scroll;
-        height: 100%;
-        color: $silver;
-        overflow: scroll;
-        @include breakPoint(break20) {
-            width: 100%;
-            margin: 0 10%;
-        }
-        h2 {
-            margin: 5% 0;
-            width: fit-content;
-            // font-style: italic;
-            color: $yellow;
-        }
-       .fieldset {
-          border: none;
-          margin: 0;
-          padding: 0;
-       }
-       .btn {
-           margin: 5% 0;
-           padding: 0;
-           font-size: 4rem;
-           color: $silver;
-           &:hover {
-               // background: $silver;
-               color: $yellow;
-           }
-       }
+.form {
+    margin: 0 25%;
+    width: 50%;
+    height: 100%;
+    padding: 5% 3%;
+    overflow: hidden;
+    color: $silver;
+    h2 {
+        color: $yellow;
+        margin: 4% 0;
     }
+    .fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
+    .btn {
+        margin: 5% 0;
+        padding: 0;
+        font-size: 4rem;
+        color: $yellow;
+        &:hover {
+            color: $silver;
+        }
+    }
+}
 
 // hiding the radio button
 input[type=radio] {
@@ -46,16 +36,31 @@ label {
     display: block;
     padding: 10px 0px;
     width: fit-content;
-    font-size: 4rem;
-    // border-radius: 20px;
+    font-size: 3.5rem;
     &:hover {
         color: $brown;
-        // background: $brown;
-        // box-shadow: 2px 0 5px darkslategray;
     }
 }
 input:checked + label {
-    // background: $silver;
     color: $yellow;
-    // box-shadow: 2px 0 5px darkslategray;
+}
+
+//responsive mixins
+@include breakPoint(break20) {
+    .form {
+        width: 100%;
+        margin: 0 3%;
+    }
+}
+
+@include breakPoint(break60) {
+    label {
+        font-size: 3rem;
+    }
+
+    .form {
+        .btn {
+            font-size: 3.5rem;
+        }
+    }
 }
