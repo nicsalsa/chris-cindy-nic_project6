@@ -55,12 +55,13 @@ input:checked + label {
 
 @include breakPoint(break60) {
     label {
-        font-size: 3rem;
+        font-size: 3.2rem;
+        padding: 1% 0;
     }
 
     .form {
         .btn {
-            font-size: 3.5rem;
+            font-size: 3rem;
         }
     }
 }

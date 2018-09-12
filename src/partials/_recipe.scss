@@ -17,19 +17,19 @@
     float: left;
     overflow: scroll;
     li {
-        border-bottom: 0.25px dashed lightgrey;
+        border-bottom: 1px dashed lightgrey;
     }
 }
 
 .recipe__alcoholInfo {
     width: 60%;
     float: left;
-    border-left: 0.5px solid $black;
+    border-left: 1px solid $black;
     figure {
         width: 100%;
         max-width: 100%;
         &:first-child {
-            border-bottom: 0.5px solid $black;
+            border-bottom: 1px solid $black;
         }
         img {
             width: 30%;
@@ -45,7 +45,7 @@
                 transform: translateY(25%);
                 h3 {
                     font-family: $heading-font;
-                    font-size: 2.4rem;
+                    font-size: 2.2rem;
                     letter-spacing: 0.25rem;
                 }
                 .alcohol__price--lrg {
@@ -83,8 +83,9 @@
         height: 100%;
         overflow: scroll;
         margin-bottom: 2rem;
-        h2 {
+        & > h2.h2 {
             font-size: 3rem;
+            margin-bottom: 1rem;
         }
         li {
             text-align: left;

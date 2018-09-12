@@ -30,7 +30,6 @@ class Recipe extends Component {
       })
             
       const spirits = allProduct.filter((product) => {
-        // console.log(product.regular_price_in_cents, '|', product.name);
         return product.primary_category === "Spirits" 
         && product.volume_in_milliliters >= 700 
         && product.image_thumb_url
@@ -46,7 +45,9 @@ class Recipe extends Component {
       this.setState({
         cheap: descending[0],
         expensive: descending[(descending.length - 1)]
-      }, () => this.props.recipeDidMount())
+      }
+      // , () => this.props.recipeDidMount()
+      )
     })
   }
   
