@@ -9,7 +9,7 @@ class Recipe extends Component {
     super();
     this.state = {
       cheap: null,
-      expensive: null,
+      expensive: null
     }
   }
     
@@ -46,7 +46,7 @@ class Recipe extends Component {
       this.setState({
         cheap: descending[0],
         expensive: descending[(descending.length - 1)]
-      })
+      }, () => this.props.recipeDidMount())
     })
   }
   
@@ -54,9 +54,9 @@ class Recipe extends Component {
       const price = obj.regular_price_in_cents / 100
       return price;
     }
-    
+
   componentDidMount(){
-    this.getLcbo(); 
+    this.getLcbo();
   }
   
 render() {
@@ -70,6 +70,7 @@ render() {
 
         {this.state.cheap && this.state.expensive ?
           <div className="container clearfix">
+
 
             <div className="recipe__description">
               <h2 className="h2">Ingredients</h2>

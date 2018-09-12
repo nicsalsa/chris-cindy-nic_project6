@@ -3,7 +3,7 @@ import './../partials/_results.scss';
 import { Route, Link, Redirect } from 'react-router-dom';
 import Recipe from './Recipe';
 import { getCocktails, getRecipe } from './Axios';
-
+import Preloader from './Preloader'
 
 class Results extends Component {
   constructor() {
@@ -13,7 +13,8 @@ class Results extends Component {
       cocktailArray: [],
       userDrink: '',
       // index: -1,
-      redirect: false
+      redirect: false,
+      preloader: false
     }
   }
   
@@ -48,6 +49,19 @@ class Results extends Component {
       return null
     }
   }
+
+  renderPreloader = () => {
+    this.setState({
+      preloader: true
+    })
+  }
+
+  recipeDidMount = () => {
+    this.setState({
+      preloader: false
+    })
+  }
+
 
   componentDidMount() {
     console.log('component did mount');
@@ -90,12 +104,13 @@ class Results extends Component {
               </p>
             </div>
 
-            <Route path="/results/recipe" render={(props) => <Recipe {...props} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
-           
+            <Route path="/results/recipe" render={(props) => <Recipe {...props} recipeDidMount={this.recipeDidMount} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
+            {this.state.preloader ? <Preloader /> : null}
+
             <div className="buttons">
               <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
               <Link to="/results/recipe">
-                <button className="btn btn--serve">Serve it up</button>
+                <button onClick={this.renderPreloader} className="btn btn--serve">Serve it up</button>
               </Link>
             </div>
 
