@@ -1,37 +1,61 @@
 
     .form {
+        margin: 0 25%;
+        width: 50%;
         height: 100%;
-        // background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) bottom center;
-        // background-size: cover;
+        padding: 5% 3%;
+        overflow: scroll;
+        height: 100%;
         color: $silver;
         overflow: scroll;
+        @include breakPoint(break20) {
+            width: 100%;
+            margin: 0 10%;
+        }
+        h2 {
+            margin: 5% 0;
+            width: fit-content;
+            // font-style: italic;
+            color: $yellow;
+        }
        .fieldset {
           border: none;
+          margin: 0;
+          padding: 0;
        }
-    }
-    .btn:hover {
-        background: $silver;
-        color: $black;
-        
+       .btn {
+           margin: 5% 0;
+           padding: 0;
+           font-size: 4rem;
+           color: $silver;
+           &:hover {
+               // background: $silver;
+               color: $yellow;
+           }
+       }
     }
 
 // hiding the radio button
-input[type = radio] {
-    visibility:hidden;
+input[type=radio] {
+    display: none;
 }
 label {
+    margin: 0;
+    font-family: $heading-font;
     cursor: pointer;
     display: block;
-    padding: 6px;
-    width: 300px;
-    font-size: 2rem;
+    padding: 10px 0px;
+    width: fit-content;
+    font-size: 4rem;
+    // border-radius: 20px;
     &:hover {
-        background: $brown;
-        box-shadow: 2px 0 5px darkslategray;
+        color: $brown;
+        // background: $brown;
+        // box-shadow: 2px 0 5px darkslategray;
     }
 }
 input:checked + label {
-    background: $silver;
-    color: $brown;
-    box-shadow: 2px 0 5px darkslategray;
+    // background: $silver;
+    color: $yellow;
+    // box-shadow: 2px 0 5px darkslategray;
 }

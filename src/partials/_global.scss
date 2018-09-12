@@ -1,4 +1,7 @@
 @import './_utils.scss';
+
+// * { border: 0.5px red dashed; }
+
 body, h1, h2, h3, ul, li, p {
 	margin: 0;
 	padding: 0;
@@ -17,10 +20,17 @@ ul {
 a {
 	text-decoration: none;
 }
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+
 h1.h1 {
 	font-family: $heading-font;
 	font-size: 10rem;
-	text-align: center;
+	line-height: 9rem;
+	// text-align: center;
 	color: $silver;
 	// letter-spacing: 2px;
 }
@@ -45,20 +55,24 @@ h3.h3 {
 	background-size: cover;
 }
 .wrapper {
-	width: 95%;
-	max-width: 1080px;
+	width: 100%;
+	max-width: 1280px;
 	margin: 0 auto;
 }
 
 .btn {
-	padding: 10px;
-	width: 20rem;
-	border-radius: 20px;
-	border: 1px solid $white;
+	padding: 10px 20px;
+	border: 0;
+	outline: 0;
 	background: transparent;
-	letter-spacing: 2px;
+	color: $silver;
 	font-family: $heading-font;
-	text-transform: uppercase;
+	font-size: 3rem;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+	&:hover {
+		color: $yellow;
+	}
 }
 .floatLeft {
 	float: left;
