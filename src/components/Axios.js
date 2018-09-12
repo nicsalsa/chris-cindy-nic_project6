@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Qs from 'qs';
 
 const lcboKey = 'MDpmMWMxNGM4YS1iMDdiLTExZTgtODgyYS03YjUxYzY1ZTJlY2Q6OG4xbGtNQ2RpcFBkWUp0UUJ4UFpPaFMxUE16emxSbklxdFd3';
 const yumKey = 'db789c67a38e847449cc1295f3a4e25d';
@@ -8,7 +9,7 @@ const yumId = '1c7ea655';
 export function getCocktails(alcohol) {
     return axios({
     method: 'GET',
-      url: 'http://api.yummly.com/v1/api/recipes',
+      url: 'https://api.yummly.com/v1/api/recipes',
     dataResponse: 'json',
     params: {
       _app_id: yumId,
@@ -35,7 +36,7 @@ export function getCocktails(alcohol) {
   export function getRecipe(cocktail) {
     return axios({
       method: 'GET',
-      url: `http://api.yummly.com/v1/api/recipe/${cocktail}`,
+      url: `https://api.yummly.com/v1/api/recipe/${cocktail}`,
       dataResponse: 'json',
       params: {
         _app_id: yumId,
