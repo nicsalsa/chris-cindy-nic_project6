@@ -161,9 +161,6 @@ img {
   height: 100vh;
   background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
   background-size: cover; }
-  @media (max-width: 650px) {
-    .App {
-      background-position: 0 0; } }
 
 .wrapper {
   max-width: 1280px;
@@ -182,6 +179,10 @@ img {
   text-transform: capitalize; }
   .btn:hover {
     color: #f1bc2b; }
+  .btn--outline {
+    border: 1px solid #b6afa0;
+    border-radius: 25px;
+    padding: 5px 20px; }
 
 html {
   font-size: 62.5%; }
@@ -206,7 +207,8 @@ h1.h1 {
       font-size: 7rem; } }
   @media (max-width: 850px) {
     h1.h1 {
-      font-size: 5rem; } }
+      font-size: 4rem;
+      text-align: center; } }
   @media (max-width: 650px) {
     h1.h1 {
       line-height: 5rem; } }
@@ -281,7 +283,7 @@ h3.h3 {
   .landing__btn {
     position: static; }
   .textblock:first-child {
-    font-size: 3rem;
+    font-size: 2rem;
     font-style: italic;
     color: #f1bc2b; }
   .textblock:last-child {
@@ -311,8 +313,7 @@ h3.h3 {
     padding: 0; }
   .form .btn {
     margin: 5% 0;
-    padding: 0;
-    font-size: 4rem;
+    font-size: 3rem;
     color: #f1bc2b; }
     .form .btn:hover {
       color: #b6afa0; }
@@ -384,23 +385,14 @@ input:checked + label {
   padding: 2rem 20%;
   position: absolute;
   bottom: 0; }
-  @media (max-height: 750px) {
-    .buttons {
-      padding: 20px; } }
 
 .btn--shake {
   float: left;
   width: 50%; }
-  @media (max-height: 750px) {
-    .btn--shake {
-      width: fit-content; } }
 
 .btn--serve {
   float: right;
   width: 50%; }
-  @media (max-height: 750px) {
-    .btn--serve {
-      width: fit-content; } }
 
 .resultsItem {
   padding: 16rem 0 10rem 0;
@@ -423,8 +415,7 @@ input:checked + label {
 @media (max-width: 850px) {
   .buttons {
     padding: 0 10% 2.5rem;
-    position: relative;
-    bottom: 0; } }
+    position: relative; } }
 
 @media (max-width: 650px) {
   .btn--shake, .btn--serve {
@@ -432,7 +423,9 @@ input:checked + label {
 
 @media (max-width: 506px) {
   .btn--shake, .btn--serve {
-    font-size: 2rem; } }
+    font-size: 2rem;
+    padding: 0;
+    letter-spacing: 0; } }
 
 .recipe {
   margin: 2% auto;
@@ -563,7 +556,9 @@ input:checked + label {
         .recipe__alcoholInfo figure figcaption .alcoholInfo__text h3 {
           font-size: 1.8rem; }
         .recipe__alcoholInfo figure figcaption .alcoholInfo__text .alcohol__price--lrg {
-          font-size: 2rem; } }
+          font-size: 2rem; }
+  .resultsItem__description--beverages {
+    font-size: 1.8rem; } }
 
 @keyframes fill {
   0% {

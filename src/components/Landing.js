@@ -13,7 +13,7 @@ const Landing = () => {
           <p className="textblock">You've tasted our perfectly roasted, carefully crafted <span className="fontYellow"> Moondollars Dark Roast Coffee</span>, now we invite you to take those quality arabica beans to the next level. Let us help you create the ultimate signature beverage this holiday season. Fragrant coffee with smooth alcohol? What could be better?</p>
         </div>
         <Link to="/form" className="landing__btn">
-          <button className="btn">Inspire Me</button>
+          <button className="btn btn--outline">Inspire Me</button>
         </Link>
       </div>
     </section>

@@ -98,7 +98,6 @@ render() {
               <figure className="alcoholInfo__box clearfix">
                 <img src={this.state.expensive.image_thumb_url} alt={this.state.expensive.tasting_note}/> 
                 <figcaption className="alcoholInfo__box--description clearfix">
-                  {/* <a href={`http://www.lcbo.com/lcbo/product/${this.state.expensive.name.replace(/['\s+]/g, '-').toLowerCase()}/${this.state.expensive.id}`}>{this.state.expensive.name} ({this.state.expensive.volume_in_milliliters}mL), ${this.convertPrice(this.state.expensive).toFixed(2)}</a> */}
                   <div className="alcoholInfo__text">
                     <h3>{this.state.expensive.name}</h3>
                     <p className="alcohoInfo__price"><span className="alcohol__price--lrg">${this.convertPrice(this.state.expensive).toFixed(2)}</span> / {this.state.expensive.volume_in_milliliters}mL</p>

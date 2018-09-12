@@ -22,9 +22,6 @@ img {
 	height: 100vh;
 	background: url(./partials/assets/ali-yahya-508903-unsplash.jpg) no-repeat bottom;
 	background-size: cover;
-	@include breakPoint(break50) {
-		background-position: 0 0;	
-	}
 }
 
 .wrapper {
@@ -45,6 +42,11 @@ img {
 	text-transform: capitalize;
 	&:hover {
 		color: $yellow;
+	}
+	&--outline {
+		border: 1px solid $silver;
+		border-radius: 25px;
+		padding: 5px 20px;
 	}
 }
 

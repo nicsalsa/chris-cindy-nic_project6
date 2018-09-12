@@ -15,18 +15,15 @@ class Results extends Component {
       redirect: false,
       // preloader: false
     }
-  }
-  
+  } 
   randomizer = (max, min = 0) => {
     return Math.floor(Math.random() * max + min);
   }
-
   getRandomCocktail = () => {
     let index = this.randomizer(this.state.cocktailArray.length);
     const userDrink = this.state.cocktailArray[index];
     this.getRecipeDetails(userDrink.id);
   }
-
   getRecipeDetails = (drink) => {
     getRecipe(drink).then((res) => {
       const userDrink = res.data
@@ -35,7 +32,6 @@ class Results extends Component {
       });
     })
   }
-
   redirectToHome = () => {
     if (this.state.redirect) {
       return <Redirect to='/' />
@@ -43,7 +39,7 @@ class Results extends Component {
       return null
     }
   }
-
+//preloader to be added after presentation
   // renderPreloader = () => {
   //   this.setState({
   //     preloader: true
@@ -55,8 +51,6 @@ class Results extends Component {
   //     preloader: false
   //   })
   // }
-
-
   componentDidMount() {
     console.log('component did mount');
     if (this.props.alcohol) {
@@ -99,7 +93,6 @@ class Results extends Component {
 
             <Route path="/results/recipe" render={(props) => <Recipe {...props} recipeDidMount={this.recipeDidMount} alcohol={this.props.alcohol} recipe={this.state.userDrink}/>} />
             {/* {this.state.preloader ? <Preloader /> : null} */}
-
             <div className="buttons">
               <button onClick={this.getRandomCocktail} className="btn btn--shake">Shake it up</button>
               <Link to="/results/recipe">

@@ -51,7 +51,7 @@ class Form extends Component {
             <input type="radio" name="alcohol" className="form__input" value="rum" id="rum" />
             <label className="form__label" htmlFor="rum">Rum</label>
           </fieldset>
-          <button className="btn">Submit</button>
+          <button className="btn btn--outline">Submit</button>
         </form>
       // </div>
     )

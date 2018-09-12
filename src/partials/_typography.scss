@@ -23,7 +23,8 @@ h1.h1 {
     font-size: 7rem;
   }
   @include breakPoint(break30) {
-    font-size: 5rem;
+		font-size: 4rem;
+		text-align: center;
   }
   @include breakPoint(break50) {
     line-height: 5rem;
