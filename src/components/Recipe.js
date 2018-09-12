@@ -9,7 +9,7 @@ class Recipe extends Component {
     super();
     this.state = {
       cheap: null,
-      expensive: null,
+      expensive: null
     }
   }
     
@@ -30,7 +30,6 @@ class Recipe extends Component {
       })
             
       const spirits = allProduct.filter((product) => {
-        // console.log(product.regular_price_in_cents, '|', product.name);
         return product.primary_category === "Spirits" 
         && product.volume_in_milliliters >= 700 
         && product.image_thumb_url
@@ -46,7 +45,9 @@ class Recipe extends Component {
       this.setState({
         cheap: descending[0],
         expensive: descending[(descending.length - 1)]
-      })
+      }
+      // , () => this.props.recipeDidMount()
+      )
     })
   }
   
@@ -54,9 +55,9 @@ class Recipe extends Component {
       const price = obj.regular_price_in_cents / 100
       return price;
     }
-    
+
   componentDidMount(){
-    this.getLcbo(); 
+    this.getLcbo();
   }
   
 render() {
@@ -71,12 +72,14 @@ render() {
         {this.state.cheap && this.state.expensive ?
           <div className="container clearfix">
 
+
             <div className="recipe__description">
               <h2 className="h2">Ingredients</h2>
               <ul>
                 {noRepeatInstructions.map((ingredient) => {
                   return (<li key={ingredient} >{ingredient}</li>)
-                })} 
+                })}
+                <li><a href={this.props.recipe.source.sourceRecipeUrl}>See full recipe</a></li> 
               </ul>
             </div>
 
