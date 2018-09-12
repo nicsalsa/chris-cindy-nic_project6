@@ -78,7 +78,8 @@ render() {
               <ul>
                 {noRepeatInstructions.map((ingredient) => {
                   return (<li key={ingredient} >{ingredient}</li>)
-                })} 
+                })}
+                <li><a href={this.props.recipe.source.sourceRecipeUrl}>See full recipe</a></li> 
               </ul>
             </div>
 

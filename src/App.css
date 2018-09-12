@@ -450,8 +450,12 @@ input:checked + label {
   padding: 10px 20px 10px 10px;
   float: left;
   overflow: scroll; }
+  .recipe__description h2 {
+    margin-bottom: 1rem; }
   .recipe__description li {
     border-bottom: 1px dashed lightgrey; }
+    .recipe__description li:last-child {
+      border-bottom: none; }
 
 .recipe__alcoholInfo {
   width: 60%;
@@ -474,15 +478,23 @@ input:checked + label {
         top: 50%;
         transform: translateY(25%); }
         .recipe__alcoholInfo figure figcaption .alcoholInfo__text h3 {
+          margin-bottom: 1rem;
           font-family: "Abril Fatface", cursive;
           font-size: 2.2rem;
           letter-spacing: 0.25rem; }
         .recipe__alcoholInfo figure figcaption .alcoholInfo__text .alcohol__price--lrg {
           font-size: 3.0rem; }
-        .recipe__alcoholInfo figure figcaption .alcoholInfo__text a {
-          color: #212227; }
-          .recipe__alcoholInfo figure figcaption .alcoholInfo__text a:hover {
-            border-bottom: 1px solid #212227; }
+
+.recipe a {
+  margin-top: 1rem;
+  display: inline-block;
+  color: #212227;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent; }
+  .recipe a:hover {
+    border-bottom: 1px solid #212227; }
 
 @media (max-width: 850px) {
   .recipe {
@@ -501,8 +513,7 @@ input:checked + label {
     overflow: scroll;
     margin-bottom: 2rem; }
     .recipe__description > h2.h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem; }
+      font-size: 3rem; }
     .recipe__description li {
       text-align: left;
       padding: 1rem 0;
